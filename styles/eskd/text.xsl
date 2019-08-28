@@ -111,7 +111,7 @@
         <xsl:number from="parent" count="d:paranum" level="single"/>
       </xsl:when>
     </xsl:choose>
-    <fo:inline padding-right="2mm">.</fo:inline>
+    <xsl:call-template name="space"/>
     <xsl:apply-templates/>
   </fo:block>
 </xsl:template>

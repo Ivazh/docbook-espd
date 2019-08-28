@@ -48,12 +48,18 @@
     </xsl:if>
 </xsl:template>
 
-<xsl:template match="d:book">
-    <xsl:apply-imports/>
-    <xsl:if test="$espd.lri = 1">
-      <xsl:call-template name="lripage"/>
-    </xsl:if>
-</xsl:template>
+    <xsl:template match="d:book">
+        <xsl:apply-imports/>
+        <xsl:if test="$espd.lri = 1">
+            <xsl:call-template name="lripage"/>
+        </xsl:if>
+        <xsl:if test="/d:book/d:info/d:dsp">
+            <xsl:call-template name="dsp"/>
+        </xsl:if>
+        <xsl:if test="/d:book/d:info/d:s">
+            <xsl:call-template name="s"/>
+        </xsl:if>
+    </xsl:template>
 
 <xsl:attribute-set name="espd.lri.style">
   <xsl:attribute name="font-family">

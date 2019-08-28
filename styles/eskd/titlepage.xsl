@@ -45,6 +45,8 @@
                 </fo:block>
             </fo:block>
         </fo:block-container>
+
+        <xsl:if test="/d:book/d:info/d:dsp">
         <fo:block-container absolute-position="fixed" text-align="right" top="1.5cm"
                             left="2cm"
                             right="1cm">
@@ -55,6 +57,18 @@
 
             </fo:block>
         </fo:block-container>
+        </xsl:if>
+        <xsl:if test="/d:book/d:info/d:s">
+            <fo:block-container absolute-position="fixed" text-align="right" top="1.5cm"
+                                left="2cm"
+                                right="1cm">
+                <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
+                          text-align="right" font-size="14pt">
+                    <fo:block>Для служебного пользования</fo:block>
+                    <fo:block>Экз. № _______________</fo:block>
+                </fo:block>
+            </fo:block-container>
+        </xsl:if>
 
         <fo:block-container absolute-position="fixed"
                             top="28cm"

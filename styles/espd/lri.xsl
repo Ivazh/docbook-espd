@@ -187,5 +187,97 @@
         </fo:table-row>
     </xsl:template>
 
+    <xsl:template name="dsp">
+        <xsl:variable name="master-reference">
+            <xsl:call-template name="select.pagemaster"/>
+        </xsl:variable>
+        <fo:page-sequence master-reference="{$master-reference}">
+            <xsl:attribute name="language">
+                <xsl:call-template name="l10n.language"/>
+            </xsl:attribute>
+            <xsl:attribute name="format">
+                <xsl:call-template name="page.number.format">
+                    <xsl:with-param name="master-reference" select="$master-reference"/>
+                </xsl:call-template>
+            </xsl:attribute>
+
+            <xsl:attribute name="force-page-count">
+                <xsl:call-template name="force.page.count">
+                    <xsl:with-param name="master-reference" select="$master-reference"/>
+                </xsl:call-template>
+            </xsl:attribute>
+
+            <xsl:attribute name="hyphenate">false</xsl:attribute>
+
+            <xsl:attribute name="hyphenation-character">
+                <xsl:call-template name="gentext">
+                    <xsl:with-param name="key" select="'hyphenation-character'"/>
+                </xsl:call-template>
+            </xsl:attribute>
+            <xsl:attribute name="hyphenation-push-character-count">
+                <xsl:call-template name="gentext">
+                    <xsl:with-param name="key" select="'hyphenation-push-character-count'"/>
+                </xsl:call-template>
+            </xsl:attribute>
+            <xsl:attribute name="hyphenation-remain-character-count">
+                <xsl:call-template name="gentext">
+                    <xsl:with-param name="key" select="'hyphenation-remain-character-count'"/>
+                </xsl:call-template>
+            </xsl:attribute>
+            <fo:flow flow-name="xsl-region-body">
+                <fo:block-container position="fixed" top="23cm" left="3cm">
+                    <fo:block text-align="left" font-size="12pt"  line-height="1em">
+                        <fo:block>Мб. <xsl:value-of select="/d:book/d:info/d:dsp/d:number"/> от <xsl:value-of select="/d:book/d:info/d:dsp/d:date"/></fo:block>
+                        <fo:block>На <fo:page-number-citation ref-id="END-OF-DOCUMENT"/> л.</fo:block>
+                        <fo:block>Отпечатано 1 экз.</fo:block>
+                        <fo:block>С НЖМД АРМ-12</fo:block>
+                        <fo:block>Без черновика</fo:block>
+                        <fo:block>Исп. <xsl:call-template name="person.name"><xsl:with-param name="node" select="/d:book/d:info//d:othercredit[2]"/></xsl:call-template></fo:block>
+                        <fo:block>Печ. <xsl:call-template name="person.name"><xsl:with-param name="node" select="/d:book/d:info//d:othercredit[2]"/></xsl:call-template></fo:block>
+                        <fo:block>Экз. №1 &#x2013; в архив ЗАО ИТ</fo:block>
+                        <fo:block>(812) 740-77-07</fo:block>
+                    </fo:block>
+                </fo:block-container>
+            </fo:flow>
+        </fo:page-sequence>
+    </xsl:template>
+    <xsl:template name="s">
+        <xsl:attribute name="language">
+            <xsl:call-template name="l10n.language"/>
+        </xsl:attribute>
+
+        <xsl:attribute name="hyphenate">false</xsl:attribute>
+
+        <xsl:attribute name="hyphenation-character">
+            <xsl:call-template name="gentext">
+                <xsl:with-param name="key" select="'hyphenation-character'"/>
+            </xsl:call-template>
+        </xsl:attribute>
+        <xsl:attribute name="hyphenation-push-character-count">
+            <xsl:call-template name="gentext">
+                <xsl:with-param name="key" select="'hyphenation-push-character-count'"/>
+            </xsl:call-template>
+        </xsl:attribute>
+        <xsl:attribute name="hyphenation-remain-character-count">
+            <xsl:call-template name="gentext">
+                <xsl:with-param name="key" select="'hyphenation-remain-character-count'"/>
+            </xsl:call-template>
+        </xsl:attribute>
+        <fo:flow flow-name="xsl-region-body">
+            <fo:block-container position="fixed" top="23cm" left="3cm">
+                <fo:block text-align="left" font-size="12pt"  line-height="1em">
+                    <fo:block>Уч. № <xsl:value-of select="/d:book/d:info/d:s/d:number"/>дсп</fo:block>
+                    <fo:block></fo:block>
+                    <!--                    <fo:block>На <fo:page-number-citation ref-id="END-OF-DOCUMENT"/> л.</fo:block>-->
+                    <fo:block>Отп. 1 экз.</fo:block>
+                    <fo:block>С НЖМД АРМ № 2С</fo:block>
+                    <fo:block>Экз. №1 &#x2013; в РСО</fo:block>
+                    <fo:block>Исп. и отп. <xsl:call-template name="person.name"><xsl:with-param name="node" select="/d:book/d:info//d:othercredit[2]"/></xsl:call-template></fo:block>
+                    <fo:block><xsl:value-of select="/d:book/d:info/d:s/d:date"/></fo:block>
+                </fo:block>
+            </fo:block-container>
+        </fo:flow>
+    </xsl:template>
+
 </xsl:stylesheet>
 

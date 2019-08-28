@@ -612,6 +612,18 @@
             </fo:flow>
         </fo:page-sequence>
 
+
+        <xsl:if test="/d:book/d:info/d:dsp">
+            <fo:page-sequence master-reference="eskd">
+                <xsl:call-template name="dsp"/>
+            </fo:page-sequence>
+        </xsl:if>
+        <xsl:if test="/d:book/d:info/d:s">
+            <fo:page-sequence master-reference="eskd">
+                <xsl:call-template name="s"/>
+            </fo:page-sequence>
+        </xsl:if>
+
     </xsl:template>
 
     <xsl:template match="d:chapter">

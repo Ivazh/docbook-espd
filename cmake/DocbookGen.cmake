@@ -44,12 +44,12 @@ function(DOCBOOK_GENERATE format input version type)
     #file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/images DESTINATION ${working})
     message("")
     message("==== ${input} ====")
-    find_program(xsltproc saxon PATHS ${CMAKE_CURRENT_SOURCE_DIR})
+    find_program(xsltproc saxon PATHS ${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd)
     #message("Found xsltproc: ${xsltproc}")
     set(docbookBasePath ${CMAKE_CURRENT_SOURCE_DIR}/espd)
-    find_program(fop fop PATHS ${CMAKE_CURRENT_SOURCE_DIR} NO_DEFAULT_PATH)
+    find_program(fop fop PATHS ${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd NO_DEFAULT_PATH)
     #message("Found fop: ${fop}")
-    find_program(xmllint xmllint PATHS ${CMAKE_CURRENT_SOURCE_DIR})
+    find_program(xmllint xmllint PATHS ${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd)
 
     set(DOCBOOK_XSL_NS_PATH ${docbookBasePath})
 
@@ -77,9 +77,9 @@ function(DOCBOOK_GENERATE format input version type)
             message(${XML_DIR})
 
         if(type STREQUAL "eskd")
-            set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/espd/eskd.xsl")
+            set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd/styles/eskd.xsl")
         else()
-            set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/sample.xsl")
+            set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd/styles/espd.xsl")
         endif()
 
         execute_process(
@@ -104,7 +104,7 @@ function(DOCBOOK_GENERATE format input version type)
         endif()
 
         execute_process(
-                COMMAND "${fop}" -c ${CMAKE_CURRENT_SOURCE_DIR}/fop.xml -fo "${outputTempName}.fo" -pdf "${outputBaseName}.pdf"
+                COMMAND "${fop}" -c ${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd/fop.xml -fo "${outputTempName}.fo" -pdf "${outputBaseName}.pdf"
                 RESULT_VARIABLE ret
                 OUTPUT_VARIABLE _output)
         if(NOT ${ret} EQUAL 0)
@@ -139,5 +139,4 @@ function(DOCBOOK_GENERATE format input version type)
     endif ()
 
     set(${outList} ${${outList}} PARENT_SCOPE)
-
 endfunction()
