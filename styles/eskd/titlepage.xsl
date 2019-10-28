@@ -69,12 +69,12 @@
             </fo:block-container>
         </xsl:if>
 
-        <fo:block-container absolute-position="fixed"
-                            top="28cm"
-                            right="2cm"
-                            left="2cm">
-            <fo:block text-align="right">Литера</fo:block>
-        </fo:block-container>
+<!--        <fo:block-container absolute-position="fixed"-->
+<!--                            top="28cm"-->
+<!--                            right="2cm"-->
+<!--                            left="2cm">-->
+<!--            <fo:block text-align="right">Литера</fo:block>-->
+<!--        </fo:block-container>-->
 
         <xsl:choose>
             <xsl:when test="d:bookinfo/d:title">
@@ -141,15 +141,15 @@
     </xsl:template>
 
     <xsl:template match="d:pubdate" mode="book.titlepage.verso.auto.mode">
-        <fo:block-container absolute-position="fixed"
-                            top="27.5cm"
-                            left="2cm"
-                            right="0.5cm">
-            <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
-                      space-before="5mm">
-                <xsl:apply-templates select="." mode="book.titlepage.verso.mode"/>
-            </fo:block>
-        </fo:block-container>
+<!--        <fo:block-container absolute-position="fixed"-->
+<!--                            top="27.5cm"-->
+<!--                            left="2cm"-->
+<!--                            right="0.5cm">-->
+<!--            <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"-->
+<!--                      space-before="5mm">-->
+<!--                <xsl:apply-templates select="." mode="book.titlepage.verso.mode"/>-->
+<!--            </fo:block>-->
+<!--        </fo:block-container>-->
     </xsl:template>
 
     <xsl:template match="d:bookinfo/d:pubdate|d:book/d:info/d:pubdate"

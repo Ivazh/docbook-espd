@@ -100,12 +100,12 @@
         <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:edition"/>
         <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:pubdate"/>
 
-        <fo:block-container absolute-position="fixed"
-                            top="28cm"
-                            right="2cm"
-                            left="2cm">
-            <fo:block text-align="right">Литера</fo:block>
-        </fo:block-container>
+<!--        <fo:block-container absolute-position="fixed"-->
+<!--                            top="28cm"-->
+<!--                            right="2cm"-->
+<!--                            left="2cm">-->
+<!--            <fo:block text-align="right">Литера</fo:block>-->
+<!--        </fo:block-container>-->
 
     </xsl:template>
 
@@ -235,15 +235,15 @@
 
     <!-- дата публикации -->
     <xsl:template match="d:pubdate" mode="book.titlepage.recto.auto.mode">
-        <fo:block-container absolute-position="fixed"
-                            top="27.5cm"
-                            left="2cm"
-                            right="0.5cm">
-            <fo:block xsl:use-attribute-sets="book.titlepage.recto.style"
-                      space-before="5mm">
-                <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>
-            </fo:block>
-        </fo:block-container>
+<!--        <fo:block-container absolute-position="fixed"-->
+<!--                            top="27.5cm"-->
+<!--                            left="2cm"-->
+<!--                            right="0.5cm">-->
+<!--            <fo:block xsl:use-attribute-sets="book.titlepage.recto.style"-->
+<!--                      space-before="5mm">-->
+<!--                <xsl:apply-templates select="." mode="book.titlepage.recto.mode"/>-->
+<!--            </fo:block>-->
+<!--        </fo:block-container>-->
     </xsl:template>
 
 </xsl:stylesheet>

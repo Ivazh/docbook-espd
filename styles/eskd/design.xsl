@@ -358,7 +358,15 @@
                                         </fo:table-cell>
                                         <fo:table-cell number-rows-spanned="5" display-align="center">
                                             <fo:block font-size="14pt" vertical-align="middle">
-                                                <xsl:value-of select="/d:book/d:info/d:title"/>
+                                                <xsl:choose>
+                                                    <xsl:when test="/d:book/d:info/d:shorttitle">
+                                                        <xsl:value-of select="/d:book/d:info/d:shorttitle"/>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:value-of select="/d:book/d:info/d:title"/>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+
                                             </fo:block>
                                             <fo:block font-size="10pt" margin-top="2mm">
                                                 <xsl:value-of select="/d:book/d:info/d:subtitle"/>
@@ -597,8 +605,10 @@
                                             <fo:table-cell>
                                                 <fo:block/>
                                             </fo:table-cell>
-                                            <fo:table-cell>
-                                                <fo:block/>
+                                            <fo:table-cell display-align="center">
+                                                <fo:block>
+                                                    <xsl:value-of select="/d:book/d:info/d:decimal"/>
+                                                </fo:block>
                                             </fo:table-cell>
                                         </fo:table-row>
                                     </fo:table-body>
