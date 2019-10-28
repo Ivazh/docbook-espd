@@ -299,8 +299,9 @@
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell number-columns-spanned="6" number-rows-spanned="3">
-                                            <fo:block font-size="18pt">
+                                            <fo:block font-size="16pt">
                                                 <xsl:value-of select="/d:book/d:info/d:decimal"/>
+                                                <xsl:value-of select="/d:book/d:info/d:docnumber"/>
                                             </fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
@@ -343,7 +344,11 @@
                                             <fo:block>Разраб.</fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
-                                            <fo:block/>
+                                            <fo:block text-align="left">
+                                                <xsl:call-template name="person.surname">
+                                                    <xsl:with-param name="position">Исполнитель</xsl:with-param>
+                                                </xsl:call-template>
+                                            </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
                                             <fo:block/>
@@ -353,16 +358,9 @@
                                         </fo:table-cell>
                                         <fo:table-cell number-rows-spanned="5" display-align="center">
                                             <fo:block font-size="14pt" vertical-align="middle">
-                                                <xsl:choose>
-                                                    <xsl:when test="/d:book/d:info/d:shorttitle">
-                                                        <xsl:value-of select="/d:book/d:info/d:shorttitle"/>
-                                                    </xsl:when>
-                                                    <xsl:otherwise>
-                                                        <xsl:value-of select="/d:book/d:info/d:title"/>
-                                                    </xsl:otherwise>
-                                                </xsl:choose>
+                                                <xsl:value-of select="/d:book/d:info/d:title"/>
                                             </fo:block>
-                                            <fo:block font-size="12pt" margin-top="2mm">
+                                            <fo:block font-size="10pt" margin-top="2mm">
                                                 <xsl:value-of select="/d:book/d:info/d:subtitle"/>
                                             </fo:block>
                                         </fo:table-cell>
@@ -381,7 +379,11 @@
                                             <fo:block>Пров.</fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
-                                            <fo:block/>
+                                            <fo:block text-align="left">
+                                                <xsl:call-template name="person.surname">
+                                                    <xsl:with-param name="position">Руководитель разработки</xsl:with-param>
+                                                </xsl:call-template>
+                                            </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
                                             <fo:block/>
@@ -431,7 +433,9 @@
                                             <fo:block>Н. контр.</fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
-                                            <fo:block/>
+                                            <fo:block text-align="left">
+                                                <xsl:call-template name="person.author"/>
+                                            </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
                                             <fo:block/>
@@ -445,7 +449,7 @@
                                             <fo:block>Утв.</fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
-                                            <fo:block/>
+                                            <fo:block text-align="center">&#x2014;</fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
                                             <fo:block/>
@@ -496,8 +500,9 @@
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell number-rows-spanned="3">
-                                            <fo:block font-size="18pt">
+                                            <fo:block font-size="16pt">
                                                 <xsl:value-of select="/d:book/d:info/d:decimal"/>
+                                                <xsl:value-of select="/d:book/d:info/d:docnumber"/>
                                             </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell number-rows-spanned="3" height="14.5mm" padding="0">
@@ -751,6 +756,21 @@
                 <xsl:apply-templates select="$node//d:surname[1]" mode="initials"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="person.surname">
+        <xsl:param name="position"/>
+        <xsl:for-each select="/d:book/d:info//d:othercredit">
+            <xsl:if test="$position=./d:personblurb/d:para/text()">
+                <xsl:value-of select=".//d:surname"/>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="person.editor">
+        <xsl:value-of select="/d:book/d:info//d:editor//d:surname"/>
+    </xsl:template>
+    <xsl:template name="person.author">
+        <xsl:value-of select="/d:book/d:info//d:author//d:surname"/>
     </xsl:template>
 
     <xsl:template match="d:firstname|d:othername" mode="initials">
