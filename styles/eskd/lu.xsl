@@ -80,7 +80,6 @@
                   space-before="5mm">
             <xsl:value-of select="d:info/d:decimal"/>
             <xsl:if test="not(normalize-space(/d:book/d:info/d:docnumber)='')">
-                <xsl:text> </xsl:text>
                 <xsl:value-of select="/d:book/d:info/d:docnumber"/>
             </xsl:if>
             <xsl:text>-ЛУ</xsl:text>

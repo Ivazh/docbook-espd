@@ -38,7 +38,6 @@
                 <fo:block text-align="left">
                     <xsl:value-of select="/d:book/d:info/d:decimal"/>
                     <xsl:if test="not(normalize-space(/d:book/d:info/d:docnumber)='')">
-                        <xsl:text> </xsl:text>
                         <xsl:value-of select="/d:book/d:info/d:docnumber"/>
                     </xsl:if>
                     <xsl:text>-ЛУ</xsl:text>
@@ -105,17 +104,16 @@
         <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
                   space-before="0.5cm">
             <xsl:value-of select="/d:book/d:info/d:decimal"/>
-            <xsl:text> </xsl:text>
             <xsl:value-of
                     select="/d:book/d:info/d:docnumber"/>
         </fo:block>
 
         <!-- Количество листов -->
-        <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
+        <!--fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
                   space-before="0.5cm">
             Листов
             <fo:page-number-citation ref-id="END-OF-DOCUMENT"/>
-        </fo:block>
+        </fo:block-->
 
         <xsl:apply-templates mode="book.titlepage.verso.auto.mode" select="d:info/d:author"/>
         <xsl:apply-templates mode="book.titlepage.verso.auto.mode" select="d:info/d:edition"/>

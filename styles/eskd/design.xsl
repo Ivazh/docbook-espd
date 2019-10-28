@@ -299,7 +299,7 @@
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell number-columns-spanned="6" number-rows-spanned="3">
-                                            <fo:block font-size="16pt">
+                                            <fo:block font-size="18pt">
                                                 <xsl:value-of select="/d:book/d:info/d:decimal"/>
                                             </fo:block>
                                         </fo:table-cell>
@@ -353,9 +353,16 @@
                                         </fo:table-cell>
                                         <fo:table-cell number-rows-spanned="5" display-align="center">
                                             <fo:block font-size="14pt" vertical-align="middle">
-                                                <xsl:value-of select="/d:book/d:info/d:title"/>
+                                                <xsl:choose>
+                                                    <xsl:when test="/d:book/d:info/d:shorttitle">
+                                                        <xsl:value-of select="/d:book/d:info/d:shorttitle"/>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:value-of select="/d:book/d:info/d:title"/>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
                                             </fo:block>
-                                            <fo:block font-size="10pt" margin-top="2mm">
+                                            <fo:block font-size="12pt" margin-top="2mm">
                                                 <xsl:value-of select="/d:book/d:info/d:subtitle"/>
                                             </fo:block>
                                         </fo:table-cell>
@@ -489,7 +496,7 @@
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell number-rows-spanned="3">
-                                            <fo:block font-size="16pt">
+                                            <fo:block font-size="18pt">
                                                 <xsl:value-of select="/d:book/d:info/d:decimal"/>
                                             </fo:block>
                                         </fo:table-cell>
