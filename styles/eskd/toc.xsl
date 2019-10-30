@@ -84,17 +84,19 @@
 
     <xsl:template match="d:gloss">
         <xsl:variable name="term" select="@term"/>
-        <xsl:choose>
-            <xsl:when test="count(preceding::d:gloss[@term = $term])>0">
-                <xsl:value-of select="@term"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="@mean"/>
-                <xsl:text> (</xsl:text>
-                <xsl:value-of select="@term"/>
-                <xsl:text>)</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:if test="@mean">
+            <xsl:choose>
+                <xsl:when test="count(preceding::d:gloss[@term = $term])>0">
+                    <xsl:value-of select="@term"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="@mean"/>
+                    <xsl:text> (</xsl:text>
+                    <xsl:value-of select="@term"/>
+                    <xsl:text>)</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="d:gloss" mode="glossary">

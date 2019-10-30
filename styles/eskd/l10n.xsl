@@ -28,7 +28,7 @@
                     <l:template name="appendix" text="Приложение %n. %t"/>
                 <!-- Слово таблица - разреженное -->
                     <l:template name="table" text="Т а б л и ц а&#160;&#160;%n — %t"/>
-                    <l:template name="note" text="П р и м е ч а н и е. "/>
+                    <l:template name="note" text="П р и м е ч а н и е &#x2013; "/>
                     <l:template name="figure" text="Рисунок %n"/>
                 </l:context>
                 <l:context name="xref-number">

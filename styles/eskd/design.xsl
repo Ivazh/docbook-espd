@@ -280,7 +280,7 @@
                                 <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-column column-width="17mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="18mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-column column-width="17.8mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-body>
                                     <fo:table-row border-style="solid" border-width="0.2mm" height="4.5mm">
                                         <fo:table-cell border-bottom-width="0.3mm">
@@ -489,7 +489,7 @@
                                 <fo:table-column column-width="15mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-column column-width="110mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-column column-width="9.8mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-body>
                                     <fo:table-row border-style="solid" border-width="0.2mm" height="4.5mm">
                                         <fo:table-cell border-bottom-width="0.2mm">
@@ -516,7 +516,7 @@
                                         <fo:table-cell number-rows-spanned="3" height="14.5mm" padding="0">
                                             <fo:table margin-left="-0.5mm" padding="0" width="8mm"
                                                       display-align="center" text-align="center">
-                                                <fo:table-column column-width="10mm"/>
+                                                <fo:table-column column-width="9.8mm"/>
                                                 <fo:table-body>
                                                     <fo:table-row>
                                                         <fo:table-cell height="6.5mm" padding="0"

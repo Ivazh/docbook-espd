@@ -26,20 +26,33 @@
     </xsl:attribute-set>
 
     <!-- сначала название рисунка, потом номер -->
-    <xsl:template match="d:figure" mode="object.title.markup">
-        <xsl:param name="allow-anchors" select="0"/>
-            <fo:block>
-                <xsl:call-template name="substitute-markup">
-                    <xsl:with-param name="allow-anchors" select="$allow-anchors"/>
-                    <xsl:with-param name="template" select="'%t'"/>
-                </xsl:call-template>
-            </fo:block>
-            <fo:block>
-                <xsl:call-template name="substitute-markup">
-                    <xsl:with-param name="allow-anchors" select="$allow-anchors"/>
-                    <xsl:with-param name="template" select="'Рисунок %n'"/>
-                </xsl:call-template>
-            </fo:block>
+<!--    <xsl:template match="d:figure" mode="object.title.markup">-->
+<!--        <xsl:param name="allow-anchors" select="0"/>-->
+<!--            <fo:block>-->
+<!--                <xsl:call-template name="substitute-markup">-->
+<!--                    <xsl:with-param name="allow-anchors" select="$allow-anchors"/>-->
+<!--                    <xsl:with-param name="template" select="'%t'"/>-->
+<!--                </xsl:call-template>-->
+<!--            </fo:block>-->
+<!--            <fo:block>-->
+<!--                <xsl:call-template name="substitute-markup">-->
+<!--                    <xsl:with-param name="allow-anchors" select="$allow-anchors"/>-->
+<!--                    <xsl:with-param name="template" select="'Рисунок %n'"/>-->
+<!--                </xsl:call-template>-->
+<!--            </fo:block>-->
+<!--    </xsl:template>-->
+
+    <xsl:template match="d:figure" mode="xref-to-prefix">
+        <xsl:param name="referrer"/>
+        <xsl:choose>
+            <xsl:when test="$referrer/@name">
+                <xsl:value-of select="$referrer/@name"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>рисунок</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:text>&#160;</xsl:text>
     </xsl:template>
 
 </xsl:stylesheet>
