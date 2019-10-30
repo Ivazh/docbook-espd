@@ -25,7 +25,7 @@
     <xsl:include href="common/titlepage.xsl"/>
     <xsl:include href="eskd/titlepage.xsl"/>
     <xsl:include href="eskd/lu.xsl"/>
-    <xsl:include href="espd/admonitions.xsl"/>
+    <xsl:include href="eskd/admonitions.xsl"/>
     <xsl:include href="common/verbatim.xsl"/>
     <xsl:include href="eskd/toc.xsl"/>
     <xsl:include href="eskd/design.xsl"/>
