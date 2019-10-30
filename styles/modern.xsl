@@ -17,14 +17,13 @@
     exclude-result-prefixes="d"
     version="1.1">
     <!-- <xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/fo/docbook.xsl"/> -->
-    <xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/fo/profile-docbook.xsl"/>
+    <xsl:import href="../docbook-xsl-ns/fo/docbook.xsl"/>
 
-    <xsl:include href="common/params.xsl"/>
     <xsl:include href="modern/params.xsl"/>
     <xsl:include href="modern/l10n.xsl"/>
     <xsl:include href="common/object.xsl"/>
     <xsl:include href="modern/list.xsl"/>
-    <xsl:include href="common/text.xsl"/>
+    <xsl:include href="modern/text.xsl"/>
     <xsl:include href="modern/verbatim.xsl"/>
     <xsl:include href="modern/titles.xsl"/>
     <xsl:include href="common/tables.xsl"/>
@@ -51,6 +50,19 @@
     <xsl:param name="espd-modern.color.text">#FFFFFF</xsl:param>
     <!-- Цвет рамок различных вставок -->
     <xsl:param name="espd-modern.color.border">#92DBFF</xsl:param>
+
+    <xsl:param name="body.font.family">Times New Roman</xsl:param>
+    <!-- Шрифт без засечек, где-то используется... -->
+    <xsl:param name="sans.font.family">Times New Roman</xsl:param>
+    <!-- Шрифт заголовков -->
+    <xsl:param name="title.font.family">Times New Roman</xsl:param>
+    <!-- Шрифт символов (псевдографики) -->
+    <xsl:param name="symbol.font.family">OpenSymbol</xsl:param>
+    <!-- Шрифт моноширинный (computeroutput, programlisting) -->
+    <xsl:param name="monospace.font.family">Courier New</xsl:param>
+    <!--<xsl:param name="body.font.master">12</xsl:param>-->
+
+    <xsl:param name="fop1.extensions">1</xsl:param>
 
     <!-- Без ЛРИ -->
     <xsl:param name="espd.lri">0</xsl:param>

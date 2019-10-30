@@ -77,11 +77,7 @@ function(DOCBOOK_GENERATE format input version type)
         set(outputTempName "${working_temp}/${XML_FD}-${XML_FILE}_${version}")
             message(${XML_DIR})
 
-        if(type STREQUAL "eskd")
-            set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd/styles/eskd.xsl")
-        else()
-            set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd/styles/espd.xsl")
-        endif()
+        set(xslFile "${CMAKE_CURRENT_SOURCE_DIR}/docbook-espd/styles/${type}.xsl")
 
         execute_process(
                 COMMAND "${xmllint}" --xinclude --noent -o "${outputTempName}.xml" "${input}"
