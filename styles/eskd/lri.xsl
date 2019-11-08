@@ -27,60 +27,65 @@
     <xsl:template name="lripage">
         <fo:block id="END-OF-DOCUMENT" break-before="page"/>
         <fo:block xsl:use-attribute-sets="espd.lri.style" hyphenate="true" hyphenation-character="-">
-            <fo:table table-layout="fixed" width="100%" height="100%" border-style="solid" border-width="0.4mm">
+            <fo:table table-layout="fixed" margin-left="-3.2mm" margin-bottom="-1cm" margin-top="-10.2mm" keep-together="always" width="185mm" height="277mm" border-style="solid" border-width="0.4mm">
                 <fo:table-column column-width="12.3mm" border-style="solid"/>
                 <fo:table-column column-width="15mm" border-style="solid"/>
                 <fo:table-column column-width="14.7mm" border-style="solid"/>
                 <fo:table-column column-width="12.5mm" border-style="solid"/>
-                <fo:table-column column-width="15mm" border-style="solid"/>
-                <fo:table-column column-width="24.8mm" border-style="solid"/>
+                <fo:table-column column-width="20mm" border-style="solid"/>
+                <fo:table-column column-width="25.5mm" border-style="solid"/>
                 <fo:table-column column-width="22.3mm" border-style="solid"/>
                 <fo:table-column column-width="26.5mm" border-style="solid"/>
                 <fo:table-column column-width="20.9mm" border-style="solid"/>
                 <fo:table-column column-width="14.9mm" border-style="solid"/>
                 <fo:table-body>
-                    <fo:table-row height="9mm" border-style="solid" border-width="0.4mm" text-align="center">
+                    <fo:table-row height="10mm" border-style="solid" border-width="0.4mm" text-align="center">
                         <fo:table-cell number-columns-spanned="10" display-align="center">
                             <fo:block>Лист регистрации изменений</fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row height="6mm" border-style="solid" border-width="0.4mm" text-align="center">
-                        <fo:table-cell number-rows-spanned="2" display-align="center">
+                        <fo:table-cell margin-left="0" number-rows-spanned="2" display-align="center">
                             <fo:block>Изм.</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell number-columns-spanned="4" display-align="center">
+                        <fo:table-cell margin-left="0" number-columns-spanned="4" display-align="center">
                             <fo:block>Номера листов (страниц)</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell number-rows-spanned="2" display-align="center">
+                        <fo:table-cell margin-left="0" number-rows-spanned="2" display-align="center">
                             <fo:block>Всего лис&#xAD;тов (страниц) в документе</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell number-rows-spanned="2" display-align="center">
+                        <fo:table-cell margin-left="0" number-rows-spanned="2" display-align="center">
                             <fo:block>Номер документа</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell number-rows-spanned="2" display-align="center">
+                        <fo:table-cell margin-left="0" number-rows-spanned="2" display-align="center">
                             <fo:block>Входящий номер сопроводительного документа и дата</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell number-rows-spanned="2" display-align="center">
+                        <fo:table-cell margin-left="0" number-rows-spanned="2" display-align="center">
                             <fo:block>Подпись (фамилия)</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell number-rows-spanned="2" display-align="center">
+                        <fo:table-cell margin-left="0" number-rows-spanned="2" display-align="center">
                             <fo:block>Дата</fo:block>
                         </fo:table-cell>
                     </fo:table-row>
                     <fo:table-row border-style="solid" border-width="0.4mm" text-align="center">
-                        <fo:table-cell display-align="center">
+                        <fo:table-cell margin-left="0" display-align="center">
                             <fo:block>изменённых</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell display-align="center">
+                        <fo:table-cell margin-left="0" display-align="center">
                             <fo:block>заменённых</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell display-align="center">
+                        <fo:table-cell margin-left="0" display-align="center">
                             <fo:block>новых</fo:block>
                         </fo:table-cell>
-                        <fo:table-cell display-align="center">
+                        <fo:table-cell margin-left="0" display-align="center">
                             <fo:block>аннулированных</fo:block>
                         </fo:table-cell>
                     </fo:table-row>
+                    <xsl:call-template name="lri-empty-row"/>
+                    <xsl:call-template name="lri-empty-row"/>
+                    <xsl:call-template name="lri-empty-row"/>
+                    <xsl:call-template name="lri-empty-row"/>
+                    <xsl:call-template name="lri-empty-row"/>
                     <xsl:call-template name="lri-empty-row"/>
                     <xsl:call-template name="lri-empty-row"/>
                     <xsl:call-template name="lri-empty-row"/>

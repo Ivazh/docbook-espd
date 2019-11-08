@@ -27,12 +27,12 @@
                 <l:context name="title">
                     <l:template name="appendix" text="Приложение %n. %t"/>
                 <!-- Слово таблица - разреженное -->
-                    <l:template name="table" text="Т а б л и ц а&#160;&#160;%n — %t"/>
+                    <l:template name="table" text="Т а б л и ц а&#160;&#160;%n"/>
                     <l:template name="note" text="П р и м е ч а н и е &#x2013; "/>
                     <l:template name="figure" text="Рисунок %n"/>
                 </l:context>
                 <l:context name="xref-number">
-                    <l:template name="table" text="табл.&#160;%n"/>
+                    <l:template name="table" text="%n"/>
                     <l:template name="figure" text="%n"/>
                     <l:template name="section" text="%n"/>
                     <l:template name="simplesect" text="подраздел&#160;%n"/>

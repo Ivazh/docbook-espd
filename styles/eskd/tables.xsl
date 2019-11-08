@@ -99,7 +99,7 @@
                             </fo:block>
                             <fo:block>
                                 <fo:marker marker-class-name="table-title">
-                                    <fo:inline font-style="italic">
+                                    <fo:inline font-style="normal">
                                     <xsl:text>П р о д о л ж е н и е&#160;&#160;&#160;т а б л и ц ы&#160;&#160;&#160;</xsl:text>
                                         <xsl:call-template name="substitute-markup">
                                             <xsl:with-param name="allow-anchors" select="0"/>
@@ -111,7 +111,7 @@
                             </fo:block>
                             <fo:block keep-with-previous.within-column="always">
                                 <fo:marker marker-class-name="table-title">
-                                    <fo:inline font-style="italic">
+                                    <fo:inline font-style="normal">
                                         <xsl:text>О к о н ч а н и е&#160;&#160;&#160;т а б л и ц ы&#160;&#160;&#160;</xsl:text>
                                     <xsl:call-template name="substitute-markup">
                                         <xsl:with-param name="allow-anchors" select="0"/>
@@ -150,5 +150,19 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
+
+    <xsl:template match="d:table" mode="xref-to-prefix">
+        <xsl:param name="referrer"/>
+        <xsl:choose>
+            <xsl:when test="$referrer/@name">
+                <xsl:value-of select="$referrer/@name"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>таблица</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:text>&#160;</xsl:text>
+    </xsl:template>
+
 
 </xsl:stylesheet>
