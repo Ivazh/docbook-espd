@@ -98,19 +98,21 @@
         <xsl:apply-templates select="parent::d:chapter" mode="label.markup"/>
         <xsl:text>.</xsl:text>
         <xsl:number from="d:chapter" count="d:para[@role='statute']|d:paranum|d:section" level="single"/>
+        <fo:inline padding-right="2mm">.</fo:inline>
       </xsl:when>
       <xsl:when test="parent::d:section">
         <xsl:apply-templates select="parent::d:section" mode="label.markup"/>
         <xsl:text>.</xsl:text>
         <xsl:number from="d:section" count="d:para[@role='statute']|d:paranum|d:section" level="single"/>
+        <fo:inline padding-right="2mm">.</fo:inline>
       </xsl:when>
       <xsl:when test="parent::d:paranum">
         <xsl:apply-templates select="parent::d:paranum" mode="label.markup"/>
         <xsl:text>.</xsl:text>
         <xsl:number from="parent" count="d:paranum" level="single"/>
+        <fo:inline padding-right="2mm">.</fo:inline>
       </xsl:when>
     </xsl:choose>
-    <fo:inline padding-right="2mm">.</fo:inline>
     <xsl:apply-templates/>
   </fo:block>
 </xsl:template>

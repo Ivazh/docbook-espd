@@ -667,6 +667,25 @@
         <xsl:apply-templates/>
     </xsl:template>
 
+    <xsl:template match="d:appendix">
+        <xsl:variable name="id">
+            <xsl:call-template name="object.id"/>
+        </xsl:variable>
+
+        <xsl:variable name="master-reference">
+            <xsl:call-template name="select.pagemaster"/>
+        </xsl:variable>
+
+        <fo:block id="{$id}" break-before="page"
+                  xsl:use-attribute-sets="component.titlepage.properties">
+            <xsl:call-template name="appendix.titlepage"/>
+        </fo:block>
+
+        <xsl:call-template name="make.component.tocs"/>
+
+        <xsl:apply-templates/>
+    </xsl:template>
+
     <xsl:template match="d:dedication" mode="dedication">
         <xsl:variable name="id">
             <xsl:call-template name="object.id"/>

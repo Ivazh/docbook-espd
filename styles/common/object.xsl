@@ -50,7 +50,7 @@
   <xsl:attribute name="space-before.minimum">5mm</xsl:attribute>
   <xsl:attribute name="space-before.optimum">5mm</xsl:attribute>
   <xsl:attribute name="space-before.maximum">5mm</xsl:attribute>
-
+  <xsl:attribute name="text-indent">0</xsl:attribute>
 <!--  <xsl:attribute name="keep-with-previous.within-page">-->
 <!--    <xsl:choose>-->
 <!--      <xsl:when test="preceding-sibling::*[1][local-name()='figure']">auto</xsl:when>-->
