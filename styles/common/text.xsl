@@ -138,7 +138,7 @@
   </xsl:template>
 
   <xsl:template match="d:para[@role = 'statute']|d:paranum" mode="xref-to">
-    <xsl:text>п.&#160;</xsl:text>
+<!--    <xsl:text>п.&#160;</xsl:text>-->
     <xsl:choose>
       <xsl:when test="parent::d:chapter">
         <xsl:apply-templates select="parent::d:chapter" mode="label.markup"/>.<xsl:number from="d:chapter" count="d:para[@role='statute']|d:paranum|d:section" level="single"/>
@@ -225,6 +225,5 @@
   <xsl:template match="d:twoblock/d:left|d:twoblock/d:right">
     <xsl:apply-templates/>
   </xsl:template>
-
 
 </xsl:stylesheet>
