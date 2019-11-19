@@ -1,6 +1,0 @@
-#!/bin/sh
-
-exec java -classpath /usr/share/java/saxon.jar:/usr/share/java/xercesImpl.jar:resolver.jar\
- -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration\
- com.icl.saxon.StyleSheet "$@"
-
