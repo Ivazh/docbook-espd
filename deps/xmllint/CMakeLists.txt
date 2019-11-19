@@ -15,7 +15,7 @@ cmake_minimum_required(VERSION 3.0)
 
 # Задание атрибутов проекта.
 set(PRJ_NAME xmllint)
-project(${PRJ_NAME})
+project(${PRJ_NAME} NONE)
 
 # Выполнение поиска.
 find_program(XMLLINT_EXECUTABLE NAMES xmllint)

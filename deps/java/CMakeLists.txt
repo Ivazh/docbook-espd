@@ -15,7 +15,7 @@ cmake_minimum_required(VERSION 3.0)
 
 # Задание атрибутов проекта.
 set(PRJ_NAME java)
-project(${PRJ_NAME})
+project(${PRJ_NAME} NONE)
 
 # Выполнение поиска.
 find_program(JAVA_EXECUTABLE NAMES java)

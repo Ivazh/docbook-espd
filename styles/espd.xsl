@@ -16,6 +16,8 @@
     <xsl:import href="../docbook-xsl-ns/fo/docbook.xsl"/>
     <!-- <xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/fo/profile-docbook.xsl"/> -->
 
+    <xsl:param name="double.sided">0</xsl:param>
+
     <!-- Шрифт основного текста -->
     <xsl:param name="body.font.family">Times New Roman</xsl:param>
     <!-- Шрифт без засечек, где-то используется... -->
