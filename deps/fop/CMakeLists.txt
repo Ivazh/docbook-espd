@@ -21,7 +21,7 @@ cmake_minimum_required(VERSION 3.0)
 
 # Задание атрибутов проекта.
 set(PRJ_NAME fop)
-project(${PRJ_NAME})
+project(${PRJ_NAME} NONE)
 
 # Проверка наличия переменной FOP_TYPE.
 # В зависимости от значения этой переменной будет выполняться поиск в ОС или
