@@ -38,6 +38,7 @@
                     <xsl:call-template name="gentext">
                         <xsl:with-param name="key">appendix</xsl:with-param>
                     </xsl:call-template>
+                    <xsl:call-template name="space"/>
                     <xsl:apply-templates select="." mode="label.markup"/>
                 </xsl:when>
                 <xsl:otherwise>

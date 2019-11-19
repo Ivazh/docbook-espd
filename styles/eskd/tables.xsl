@@ -9,19 +9,19 @@
 
 <!-- Оформление таблиц -->
 <xsl:stylesheet
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:d="http://docbook.org/ns/docbook"
-    xmlns:fo="http://www.w3.org/1999/XSL/Format"
-    exclude-result-prefixes="d"
-    version="1.1">
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns:d="http://docbook.org/ns/docbook"
+        xmlns:fo="http://www.w3.org/1999/XSL/Format"
+        exclude-result-prefixes="d"
+        version="1.1">
 
     <xsl:include href="../common/tables.xsl"/>
 
-<!-- Таблица дожна иметь номер -->
-<!-- без номера раздела (сквозная нумерация)-->
+    <!-- Таблица дожна иметь номер -->
+    <!-- без номера раздела (сквозная нумерация)-->
     <xsl:template match="d:table|d:figure" mode="label.markup">
         <xsl:variable name="pchap"
-                        select="(ancestor::d:appendix[ancestor::d:book])[last()]"/>
+                      select="(ancestor::d:appendix[ancestor::d:book])[last()]"/>
 
         <xsl:variable name="prefix">
             <xsl:if test="count($pchap) &gt; 0">
@@ -71,59 +71,66 @@
 
     <!-- продолжение в таблице -->
     <xsl:template name="table.layout">
-    <xsl:param name="table.content"/>
+        <xsl:param name="table.content"/>
 
-    <xsl:choose>
-        <xsl:when test="self::d:informaltable">
-            <xsl:copy-of select="$table.content"/>
-        </xsl:when>
-        <xsl:otherwise>
-            <fo:table>
-                <fo:table-header>
-                  <fo:table-row>
-                    <fo:table-cell>
-                        <fo:block xsl:use-attribute-sets="table.caption.properties">
-                            <fo:retrieve-table-marker
-                                    retrieve-class-name="table-title"
-                                    retrieve-position-within-table="first-starting"
-                                    retrieve-boundary-within-table="table-fragment"/>&#x00A0;
-                        </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </fo:table-header>
-                <fo:table-body>
-                    <fo:table-row>
-                        <fo:table-cell>
-                            <fo:block xsl:use-attribute-sets="table.caption.properties">
-                                <fo:marker marker-class-name="table-title"></fo:marker>
-                            </fo:block>
-                            <fo:block>
-                                <fo:marker marker-class-name="table-title">
-                                    <fo:inline font-style="normal">
-                                    <xsl:text>П р о д о л ж е н и е&#160;&#160;&#160;т а б л и ц ы&#160;&#160;&#160;</xsl:text>
-                                        <xsl:call-template name="substitute-markup">
-                                            <xsl:with-param name="allow-anchors" select="0"/>
-                                            <xsl:with-param name="template" select="'%n'"/>
-                                        </xsl:call-template>
-                                    </fo:inline>
-                                </fo:marker>
-                                <xsl:copy-of select="$table.content"/>
-                            </fo:block>
-                            <fo:block keep-with-previous.within-column="always">
-                                <fo:marker marker-class-name="table-title">
-                                    <fo:inline font-style="normal">
-                                        <xsl:text>О к о н ч а н и е&#160;&#160;&#160;т а б л и ц ы&#160;&#160;&#160;</xsl:text>
-                                    <xsl:call-template name="substitute-markup">
-                                        <xsl:with-param name="allow-anchors" select="0"/>
-                                        <xsl:with-param name="template" select="'%n'"/>
-                                    </xsl:call-template>
-                                    </fo:inline>
-                                </fo:marker>
-                            </fo:block>
-                        </fo:table-cell>
-                    </fo:table-row>
-                </fo:table-body>
-            </fo:table>
+        <xsl:choose>
+            <xsl:when test="self::d:informaltable">
+                <xsl:copy-of select="$table.content"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <fo:table>
+                    <fo:table-header>
+                        <fo:table-row>
+                            <fo:table-cell>
+                                <fo:block xsl:use-attribute-sets="table.caption.properties">
+                                    <fo:retrieve-table-marker
+                                            retrieve-class-name="table-title"
+                                            retrieve-position-within-table="first-starting"
+                                            retrieve-boundary-within-table="table-fragment"/>&#x00A0;
+                                </fo:block>
+                            </fo:table-cell>
+                        </fo:table-row>
+                    </fo:table-header>
+                    <fo:table-footer>
+                        <fo:table-row>
+                            <fo:table-cell>
+                                <fo:block border-before-style="solid" border-before-color="black" border-before-width="0.5pt"/>
+                            </fo:table-cell>
+                        </fo:table-row>
+                    </fo:table-footer>
+                    <fo:table-body>
+                        <fo:table-row>
+                            <fo:table-cell>
+                                <fo:block xsl:use-attribute-sets="table.caption.properties">
+                                    <fo:marker marker-class-name="table-title"></fo:marker>
+                                </fo:block>
+                                <fo:block>
+                                    <fo:marker marker-class-name="table-title">
+                                        <fo:inline font-style="normal">
+                                            <xsl:text>П р о д о л ж е н и е&#160;&#160;&#160;т а б л и ц ы&#160;&#160;&#160;</xsl:text>
+                                            <xsl:call-template name="substitute-markup">
+                                                <xsl:with-param name="allow-anchors" select="0"/>
+                                                <xsl:with-param name="template" select="'%n'"/>
+                                            </xsl:call-template>
+                                        </fo:inline>
+                                    </fo:marker>
+                                    <xsl:copy-of select="$table.content"/>
+                                </fo:block>
+                                <fo:block keep-with-previous.within-column="always">
+                                    <fo:marker marker-class-name="table-title">
+                                        <fo:inline font-style="normal">
+                                            <xsl:text>О к о н ч а н и е&#160;&#160;&#160;т а б л и ц ы&#160;&#160;&#160;</xsl:text>
+                                            <xsl:call-template name="substitute-markup">
+                                                <xsl:with-param name="allow-anchors" select="0"/>
+                                                <xsl:with-param name="template" select="'%n'"/>
+                                            </xsl:call-template>
+                                        </fo:inline>
+                                    </fo:marker>
+                                </fo:block>
+                            </fo:table-cell>
+                        </fo:table-row>
+                    </fo:table-body>
+                </fo:table>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -136,7 +143,8 @@
     <!-- Заголовок таблицы отделен двойной линией -->
     <xsl:template name="table.row.properties">
         <xsl:choose>
-            <xsl:when test="ancestor::d:thead and not (following-sibling::d:row) and not (ancestor::d:thead[@role='notdouble'])">
+            <xsl:when
+                    test="ancestor::d:thead and not (following-sibling::d:row) and not (ancestor::d:thead[@role='notdouble'])">
                 <xsl:attribute name="border-after-style">double</xsl:attribute>
                 <xsl:attribute name="border-after-width">0.5mm</xsl:attribute>
                 <xsl:attribute name="text-align">center</xsl:attribute>
