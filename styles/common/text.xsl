@@ -197,10 +197,10 @@
 
   <xsl:template match="d:dateline">
     <fo:inline>
-      <xsl:text>«___»___________</xsl:text>
+      <xsl:text>«___»___________ 20___</xsl:text>
       <xsl:call-template name="datetime.format">
         <xsl:with-param name="date" select="date:date-time()"/>
-        <xsl:with-param name="format" select="'Y'"/>
+<!--        <xsl:with-param name="format" select="'Y'"/>-->
       </xsl:call-template>
       <xsl:text> г.</xsl:text>
     </fo:inline>

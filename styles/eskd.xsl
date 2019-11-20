@@ -18,6 +18,7 @@
     <xsl:include href="eskd/text.xsl"/>
     <xsl:include href="eskd/tables.xsl"/>
     <xsl:include href="eskd/titles.xsl"/>
+    <xsl:include href="eskd/images.xsl"/>
     <xsl:include href="espd/headings.xsl"/>
     <xsl:include href="espd/list.xsl"/>
     <xsl:include href="common/object.xsl"/>
