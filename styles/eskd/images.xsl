@@ -47,13 +47,14 @@
         <xsl:choose>
             <xsl:when test="$referrer/@name">
                 <xsl:value-of select="$referrer/@name"/>
-                <xsl:text>&#160;</xsl:text>
+                <xsl:if test="$referrer/@name != ''">
+                    <xsl:text>&#160;</xsl:text>
+                </xsl:if>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:text>рисунок&#160;</xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-
     </xsl:template>
 
 </xsl:stylesheet>
