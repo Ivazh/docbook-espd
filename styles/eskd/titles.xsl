@@ -32,29 +32,26 @@
             <xsl:value-of select="$body.font.master"/>
             <xsl:text>pt</xsl:text>
         </xsl:attribute>
-        <xsl:attribute name="space-before.minimum">1em</xsl:attribute>
-        <xsl:attribute name="space-before.optimum">1em</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">1em</xsl:attribute>
-        <xsl:attribute name="space-after.minimum">1em</xsl:attribute>
-        <xsl:attribute name="space-after.optimum">1em</xsl:attribute>
-        <xsl:attribute name="space-after.maximum">1em</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">0</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">0</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">0 </xsl:attribute>
         <xsl:attribute name="space-after.precedence">2</xsl:attribute>
         <xsl:attribute name="space-after.minimum">
             <xsl:choose>
                 <xsl:when test="parent::d:appendix">1em</xsl:when>
-                <xsl:otherwise>1em</xsl:otherwise>
+                <xsl:otherwise>6pt</xsl:otherwise>
             </xsl:choose>
         </xsl:attribute>
         <xsl:attribute name="space-after.optimum">
             <xsl:choose>
                 <xsl:when test="parent::d:appendix">1em</xsl:when>
-                <xsl:otherwise>1em</xsl:otherwise>
+                <xsl:otherwise>6pt</xsl:otherwise>
             </xsl:choose>
         </xsl:attribute>
         <xsl:attribute name="space-after.maximum">
             <xsl:choose>
                 <xsl:when test="parent::d:appendix">1em</xsl:when>
-                <xsl:otherwise>1em</xsl:otherwise>
+                <xsl:otherwise>6pt</xsl:otherwise>
             </xsl:choose>
         </xsl:attribute>
         <xsl:attribute name="keep-with-next.within-page">1</xsl:attribute>
@@ -114,14 +111,14 @@
         <xsl:attribute name="text-indent">
             <xsl:value-of select="$espd.text-indent"/>
         </xsl:attribute>
-        <xsl:attribute name="space-before.minimum">1em</xsl:attribute>
-        <xsl:attribute name="space-before.optimum">1em</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">1em</xsl:attribute>
-        <xsl:attribute name="space-before.precedence">1</xsl:attribute>
-        <xsl:attribute name="space-after.minimum">1em</xsl:attribute>
-        <xsl:attribute name="space-after.optimum">1em</xsl:attribute>
-        <xsl:attribute name="space-after.maximum">1em</xsl:attribute>
-        <xsl:attribute name="keep-with-next.within-page">2</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">18pt</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">18pt</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">18pt</xsl:attribute>
+        <xsl:attribute name="space-before.precedence">0</xsl:attribute>
+        <xsl:attribute name="space-after.minimum">18pt</xsl:attribute>
+        <xsl:attribute name="space-after.optimum">18pt</xsl:attribute>
+        <xsl:attribute name="space-after.maximum">18pt</xsl:attribute>
+<!--        <xsl:attribute name="keep-with-next.within-page">always</xsl:attribute>-->
         <xsl:attribute name="text-align">justify</xsl:attribute>
     </xsl:attribute-set>
 

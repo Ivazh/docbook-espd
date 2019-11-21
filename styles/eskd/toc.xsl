@@ -18,6 +18,15 @@
 <!-- По левому краю все уровни -->
     <xsl:param name="toc.indent.width">0</xsl:param>
 
+    <xsl:attribute-set name="toc.margin.properties">
+        <xsl:attribute name="space-before.minimum">0</xsl:attribute>
+        <xsl:attribute name="space-before.optimum">0</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">0</xsl:attribute>
+        <xsl:attribute name="space-after.minimum">0</xsl:attribute>
+        <xsl:attribute name="space-after.optimum">0</xsl:attribute>
+        <xsl:attribute name="space-after.maximum">0</xsl:attribute>
+    </xsl:attribute-set>
+
 <!-- Точка после номера в оглавлении -->
     <xsl:param name="autotoc.label.separator"></xsl:param>
 

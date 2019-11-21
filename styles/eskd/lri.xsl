@@ -110,8 +110,19 @@
                     <xsl:call-template name="lri-empty-row"/>
                     <xsl:call-template name="lri-empty-row"/>
                     <xsl:call-template name="lri-empty-row"/>
-                    <xsl:call-template name="lri-empty-row"/>
-                    <xsl:call-template name="lri-empty-row"/>
+                    <fo:table-row border-style="solid" height="7.7mm">
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                        <fo:table-cell><fo:block>&#x00A0;</fo:block></fo:table-cell>
+                    </fo:table-row>
+<!--                    <xsl:call-template name="lri-empty-row"/>-->
                 </fo:table-body>
             </fo:table>
         </fo:block>

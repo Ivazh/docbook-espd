@@ -107,7 +107,7 @@
                     <fo:block-container height="287mm" margin-bottom="5mm" margin-top="5mm" border-right="solid 0.5mm">
                         <fo:block/>
                     </fo:block-container>
-                    <fo:block-container reference-orientation="90" absolute-position="fixed" bottom="5mm" left="8mm">
+                    <fo:block-container line-height="1.0" reference-orientation="90" absolute-position="fixed" bottom="5mm" left="8mm">
                         <fo:block font-size="11pt" font-family="Times New Roman" text-align="center">
                             <fo:table table-layout="fixed" width="145mm" height="18mm" border-style="solid"
                                       border-width="0.5mm">
@@ -204,10 +204,10 @@
             </fo:static-content>
             <fo:static-content flow-name="xsl-region-start">
                 <!-- Добавление номера страницы к нижнему колонтитулу -->
-                <fo:block-container height="287mm" margin-bottom="5mm" margin-top="5mm" border-right="solid 0.5mm">
+                <fo:block-container height="287mm" margin-bottom="5mm" margin-top="5mm" border-right="solid 0.5mm" line-height="1.0">
                     <fo:block/>
                 </fo:block-container>
-                <fo:block-container reference-orientation="90" absolute-position="fixed" bottom="5mm" left="8mm">
+                <fo:block-container reference-orientation="90" absolute-position="fixed" bottom="5mm" left="8mm" line-height="1.0">
                     <fo:block font-size="11pt" font-family="Times New Roman" text-align="center">
                         <fo:table table-layout="fixed" width="145mm" height="18mm" border-style="solid"
                                   border-width="0.5mm">
@@ -267,7 +267,7 @@
                 </xsl:call-template>
                 <fo:block>
                     <fo:marker marker-class-name="bottom">
-                        <fo:block font-size="11pt" font-family="Times New Roman" text-align="right">
+                        <fo:block line-height="1.0" font-size="11pt" font-family="Times New Roman" text-align="right">
                             <fo:table table-layout="fixed" height="22mm" border-style="solid" border-width="0.5mm"
                                       display-align="center" font-size="9pt" margin-left="64.45mm">
                                 <fo:table-column column-width="14mm" border-style="solid" border-width="0.5mm"/>
@@ -293,7 +293,7 @@
                                 </fo:table-body>
                             </fo:table>
                         </fo:block>
-                        <fo:block font-size="11pt" font-family="Times New Roman" text-align="center">
+                        <fo:block line-height="1.0" font-size="11pt" font-family="Times New Roman" text-align="center">
                             <fo:table table-layout="fixed" height="40mm" border-style="solid" border-width="0.5mm"
                                       display-align="center" font-size="9pt" margin-left="-0.1mm">
                                 <fo:table-column column-width="6.5mm" border-style="solid" border-width="0.5mm"/>
@@ -505,7 +505,7 @@
                 </fo:block>
                 <fo:block>
                     <fo:marker marker-class-name="bottom">
-                        <fo:block font-size="11pt" font-family="Times New Roman" text-align="center">
+                        <fo:block font-size="11pt" font-family="Times New Roman" text-align="center" line-height="1.0">
                             <fo:table table-layout="fixed" margin-left="-0.1mm" width="175mm" font-size="9pt"
                                       height="15mm" border-style="solid" display-align="center"
                                       border-width="0.5mm">
@@ -611,7 +611,7 @@
                 <fo:block>
                     <fo:marker marker-class-name="left">
                         <fo:block-container reference-orientation="90" absolute-position="fixed" bottom="172.3mm"
-                                            left="8mm">
+                                            left="8mm" line-height="1.0">
                             <fo:block font-size="11pt" font-family="Times New Roman" text-align="center">
                                 <fo:table table-layout="fixed" width="120mm" height="18mm" border-style="solid"
                                           border-width="0.5mm">
@@ -648,7 +648,6 @@
                 </fo:block>
                 <!--                -->
                 <!--                <xsl:apply-templates select="d:acknowledgements" mode="acknowledgements"/>-->
-
                 <xsl:call-template name="make.book.tocs"/>
                 <xsl:apply-templates select="d:dedication" mode="dedication"/>
 
@@ -672,6 +671,152 @@
             </fo:page-sequence>
         </xsl:if>
 
+    </xsl:template>
+
+    <xsl:template name="make.book.tocs">
+        <xsl:variable name="lot-master-reference">
+            <xsl:call-template name="select.pagemaster">
+                <xsl:with-param name="pageclass" select="'eskd'"/>
+            </xsl:call-template>
+        </xsl:variable>
+
+        <xsl:variable name="toc.params">
+            <xsl:call-template name="find.path.params">
+                <xsl:with-param name="table" select="normalize-space($generate.toc)"/>
+            </xsl:call-template>
+        </xsl:variable>
+
+        <xsl:if test="contains($toc.params, 'toc')">
+            <xsl:call-template name="division.toc">
+                <xsl:with-param name="toc.title.p"
+                                select="contains($toc.params, 'title')"/>
+            </xsl:call-template>
+        </xsl:if>
+
+        <xsl:if test="contains($toc.params,'figure') and .//d:figure">
+            <xsl:call-template name="page.sequence">
+                <xsl:with-param name="master-reference"
+                                select="$lot-master-reference"/>
+                <xsl:with-param name="element" select="'toc'"/>
+                <xsl:with-param name="gentext-key" select="'ListofFigures'"/>
+                <xsl:with-param name="content">
+                    <xsl:call-template name="list.of.titles">
+                        <xsl:with-param name="titles" select="'figure'"/>
+                        <xsl:with-param name="nodes" select=".//d:figure"/>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+
+        <xsl:if test="contains($toc.params,'table') and .//d:table">
+            <xsl:call-template name="page.sequence">
+                <xsl:with-param name="master-reference"
+                                select="$lot-master-reference"/>
+                <xsl:with-param name="element" select="'toc'"/>
+                <xsl:with-param name="gentext-key" select="'ListofTables'"/>
+                <xsl:with-param name="content">
+                    <xsl:call-template name="list.of.titles">
+                        <xsl:with-param name="titles" select="'table'"/>
+                        <xsl:with-param name="nodes" select=".//d:table[not(@tocentry = 0)]"/>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+
+        <xsl:if test="contains($toc.params,'example') and .//d:example">
+            <xsl:call-template name="page.sequence">
+                <xsl:with-param name="master-reference"
+                                select="$lot-master-reference"/>
+                <xsl:with-param name="element" select="'toc'"/>
+                <xsl:with-param name="gentext-key" select="'ListofExample'"/>
+                <xsl:with-param name="content">
+                    <xsl:call-template name="list.of.titles">
+                        <xsl:with-param name="titles" select="'example'"/>
+                        <xsl:with-param name="nodes" select=".//d:example"/>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+
+        <xsl:if test="contains($toc.params,'equation') and
+                 .//d:equation[d:title or d:info/d:title]">
+            <xsl:call-template name="page.sequence">
+                <xsl:with-param name="master-reference"
+                                select="$lot-master-reference"/>
+                <xsl:with-param name="element" select="'toc'"/>
+                <xsl:with-param name="gentext-key" select="'ListofEquations'"/>
+                <xsl:with-param name="content">
+                    <xsl:call-template name="list.of.titles">
+                        <xsl:with-param name="titles" select="'equation'"/>
+                        <xsl:with-param name="nodes"
+                                        select=".//d:equation[d:title or d:info/d:title]"/>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+
+        <xsl:if test="contains($toc.params,'procedure') and
+                 .//d:procedure[d:title or d:info/d:title]">
+            <xsl:call-template name="page.sequence">
+                <xsl:with-param name="master-reference"
+                                select="$lot-master-reference"/>
+                <xsl:with-param name="element" select="'toc'"/>
+                <xsl:with-param name="gentext-key" select="'ListofProcedures'"/>
+                <xsl:with-param name="content">
+                    <xsl:call-template name="list.of.titles">
+                        <xsl:with-param name="titles" select="'procedure'"/>
+                        <xsl:with-param name="nodes"
+                                        select=".//d:procedure[d:title or d:info/d:title]"/>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="division.toc">
+        <xsl:param name="toc-context" select="."/>
+        <xsl:param name="toc.title.p" select="true()"/>
+
+        <xsl:variable name="cid">
+            <xsl:call-template name="object.id">
+                <xsl:with-param name="object" select="$toc-context"/>
+            </xsl:call-template>
+        </xsl:variable>
+
+        <xsl:variable name="nodes"
+                      select="$toc-context/d:part
+                        |$toc-context/d:reference
+                        |$toc-context/d:preface
+                        |$toc-context/d:chapter
+                        |$toc-context/d:appendix
+                        |$toc-context/d:article
+                        |$toc-context/d:topic
+                        |$toc-context/d:bibliography
+                        |$toc-context/d:glossary
+                        |$toc-context/d:index"/>
+
+        <xsl:if test="$nodes">
+            <fo:block id="toc...{$cid}"
+                      xsl:use-attribute-sets="toc.margin.properties">
+                <xsl:if test="$axf.extensions != 0 and
+                    $xsl1.1.bookmarks = 0 and
+                    $show.bookmarks != 0">
+                    <xsl:attribute name="axf:outline-level">1</xsl:attribute>
+                    <xsl:attribute name="axf:outline-expand">false</xsl:attribute>
+                    <xsl:attribute name="axf:outline-title">
+                        <xsl:call-template name="gentext">
+                            <xsl:with-param name="key" select="'TableofContents'"/>
+                        </xsl:call-template>
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:if test="$toc.title.p">
+                    <xsl:call-template name="table.of.contents.titlepage"/>
+                </xsl:if>
+                <xsl:apply-templates select="$nodes" mode="toc">
+                    <xsl:with-param name="toc-context" select="$toc-context"/>
+                </xsl:apply-templates>
+            </fo:block>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="d:chapter">
@@ -723,7 +868,6 @@
 
         <fo:block id="{$id}" break-before="page"
                   xsl:use-attribute-sets="component.titlepage.properties">
-            <xsl:call-template name="dedication.titlepage"/>
         </fo:block>
         <xsl:apply-templates/>
     </xsl:template>
@@ -736,7 +880,6 @@
         <xsl:variable name="master-reference">
             <xsl:call-template name="select.pagemaster"/>
         </xsl:variable>
-
         <fo:block id="{$id}" break-before="page"
                   xsl:use-attribute-sets="component.titlepage.properties">
             <xsl:call-template name="preface.titlepage"/>

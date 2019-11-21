@@ -19,6 +19,7 @@
     <xsl:attribute-set name="book.titlepage.verso.style"
                        use-attribute-sets="espd.titlepage.style">
         <xsl:attribute name="font-size">14pt</xsl:attribute>
+        <xsl:attribute name="line-height">1.5</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:template name="book.titlepage.verso">
@@ -31,7 +32,7 @@
                             left="2cm"
                             right="2cm">
 
-            <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
+            <fo:block xsl:use-attribute-sets="book.titlepage.verso.style" line-height="1.5"
                       text-align="left" font-size="14pt" margin-left="3mm"
             >
                 <fo:block text-align="left">Утвержден</fo:block>
@@ -122,7 +123,7 @@
 
     <xsl:template match="d:title" mode="book.titlepage.verso.auto.mode">
         <fo:block xsl:use-attribute-sets="book.titlepage.verso.style"
-                  space-before="8cm">
+                  space-before="8cm" >
             <xsl:call-template name="ucase">
                 <xsl:with-param name="string">
                     <xsl:call-template name="division.title">

@@ -46,7 +46,7 @@
     <xsl:param name="body.margin.bottom">10mm</xsl:param>
     <xsl:param name="body.font.master">14</xsl:param>
     <xsl:param name="body.font.size">14</xsl:param>
-    <xsl:param name="line-height">1.0</xsl:param>
+    <xsl:param name="line-height">1.5</xsl:param>
 
     <xsl:param name="dedication.autolabel" select="0"/>
     <!-- Аналог разрыва страницы -->

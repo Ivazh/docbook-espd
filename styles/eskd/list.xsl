@@ -14,112 +14,116 @@
     exclude-result-prefixes="d"
     version="1.1">
 
-    <!-- отступы dedication (в спецификации) -->
-    <xsl:attribute-set name="component.title.properties">
-        <xsl:attribute name="space-after.minimum">
+
+    <xsl:include href="../common/list.xsl"/>
+
+    <!-- Ширина символов перечислений. -->
+    <xsl:param name="orderedlist.label.width">0mm</xsl:param>
+    <xsl:param name="itemizedlist.label.width">0mm</xsl:param>
+
+    <!-- Отбивка и отступы перечислений -->
+    <xsl:attribute-set name="list.block.spacing">
+        <xsl:attribute name="space-before.optimum">6pt</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">6pt</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">6pt</xsl:attribute>
+        <xsl:attribute name="space-after.optimum">0mm</xsl:attribute>
+        <xsl:attribute name="space-after.minimum">0mm</xsl:attribute>
+        <xsl:attribute name="space-after.maximum">0mm</xsl:attribute>
+        <xsl:attribute name="text-indent">
             <xsl:choose>
-                <xsl:when test="ancestor-or-self::d:dedication">0.1em</xsl:when>
-                <xsl:otherwise>2.8em</xsl:otherwise>
+                <xsl:when test="count(ancestor::d:orderedlist)=1">25mm</xsl:when>
+                <xsl:otherwise>13mm</xsl:otherwise>
             </xsl:choose>
         </xsl:attribute>
-        <xsl:attribute name="space-after.optimum">
-            <xsl:choose>
-                <xsl:when test="ancestor-or-self::d:dedication">0.1em</xsl:when>
-                <xsl:otherwise>3em</xsl:otherwise>
-            </xsl:choose>
-        </xsl:attribute>
-        <xsl:attribute name="space-after.maximum">
-            <xsl:choose>
-                <xsl:when test="ancestor-or-self::d:dedication">0.1em</xsl:when>
-                <xsl:otherwise>3.2em</xsl:otherwise>
-            </xsl:choose>
-        </xsl:attribute>
+        <!--<xsl:attribute name="text-indent"><xsl:value-of select="$espd.text-indent"/></xsl:attribute>-->
+        <xsl:attribute name="margin-left">0mm</xsl:attribute>
     </xsl:attribute-set>
 
-    <!-- Выравнивание отступов -->
-    <xsl:template name="nongraphical.admonition">
-        <xsl:param name="content">
-            <xsl:apply-templates/>
-        </xsl:param>
+
+    <!-- Отбивка пунктов перечислений. -->
+    <xsl:attribute-set name="list.item.spacing">
+        <xsl:attribute name="space-before.optimum">0mm</xsl:attribute>
+        <xsl:attribute name="space-before.minimum">0mm</xsl:attribute>
+        <xsl:attribute name="space-before.maximum">0mm</xsl:attribute>
+        <xsl:attribute name="space-after.optimum">0mm</xsl:attribute>
+        <xsl:attribute name="space-after.minimum">0mm</xsl:attribute>
+        <xsl:attribute name="space-after.maximum">0mm</xsl:attribute>
+        <xsl:attribute name="text-indent">
+            <xsl:choose>
+                <xsl:when test="count(ancestor::d:orderedlist|ancestor::d:itemizedlist)=1">12.5mm</xsl:when>
+                <xsl:when test="count(ancestor::d:orderedlist|ancestor::d:itemizedlist)=2">25mm</xsl:when>
+                <xsl:when test="count(ancestor::d:orderedlist|ancestor::d:itemizedlist)=3">30mm</xsl:when>
+                <xsl:otherwise>13mm</xsl:otherwise>
+            </xsl:choose>
+        </xsl:attribute>
+        <!--<xsl:attribute name="text-indent"><xsl:value-of select="$espd.text-indent"/></xsl:attribute>-->
+        <xsl:attribute name="margin-left">0mm</xsl:attribute>
+    </xsl:attribute-set>
+    <xsl:attribute-set name="list.block.properties">
+        <xsl:attribute name="provisional-label-separation">0mm</xsl:attribute>
+        <xsl:attribute name="provisional-distance-between-starts">0mm</xsl:attribute>
+    </xsl:attribute-set>
+
+    <xsl:template match="d:itemizedlist/d:listitem|d:orderedlist/d:listitem">
         <xsl:variable name="id">
             <xsl:call-template name="object.id"/>
         </xsl:variable>
 
-        <fo:block id="{$id}"
-                    xsl:use-attribute-sets="nongraphical.admonition.properties">
-            <xsl:attribute name="padding-bottom">0pt</xsl:attribute>
-            <xsl:attribute name="padding-top">0pt</xsl:attribute>
-            <xsl:attribute name="padding-right">0pt</xsl:attribute>
-            <xsl:attribute name="padding-left">0em</xsl:attribute>
-            <xsl:attribute name="margin-left">0pt</xsl:attribute>
-            <xsl:attribute name="margin-bottom">0em</xsl:attribute>
-            <xsl:attribute name="margin-right">0pt</xsl:attribute>
-            <xsl:attribute name="margin-top">0em</xsl:attribute>
-            <xsl:attribute name="text-indent">
-                <xsl:value-of select="$espd.text-indent"/>
-            </xsl:attribute>
-            <fo:block xsl:use-attribute-sets="admonition.properties">
-            <xsl:apply-templates select="." mode="object.title.markup"/>
-            <xsl:value-of select="$content"/>
-            </fo:block>
-        </fo:block>
+        <xsl:variable name="keep.together">
+            <xsl:call-template name="pi.dbfo_keep-together"/>
+        </xsl:variable>
+
+        <xsl:variable name="item.contents">
+            <fo:list-item-label end-indent="label-end()" xsl:use-attribute-sets="itemizedlist.label.properties">
+                <fo:block>
+                </fo:block>
+            </fo:list-item-label>
+            <fo:list-item-body start-indent="body-start()">
+                <fo:block>
+                    <xsl:apply-templates/>
+                </fo:block>
+            </fo:list-item-body>
+        </xsl:variable>
+
+        <xsl:choose>
+            <xsl:when test="parent::*/@spacing = 'compact'">
+                <fo:list-item id="{$id}" xsl:use-attribute-sets="compact.list.item.spacing">
+                    <xsl:if test="$keep.together != ''">
+                        <xsl:attribute name="keep-together.within-column">
+                            <xsl:value-of
+                                    select="$keep.together"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$item.contents"/>
+                </fo:list-item>
+            </xsl:when>
+            <xsl:otherwise>
+                <fo:list-item id="{$id}" xsl:use-attribute-sets="list.item.spacing">
+                    <xsl:if test="$keep.together != ''">
+                        <xsl:attribute name="keep-together.within-column">
+                            <xsl:value-of
+                                    select="$keep.together"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:copy-of select="$item.contents"/>
+                </fo:list-item>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
-    <!-- Отбивка и отступы перечислений -->
-    <xsl:attribute-set name="list.block.spacing">
-        <xsl:attribute name="space-before.optimum">0mm</xsl:attribute>
-        <xsl:attribute name="space-before.minimum">0mm</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">0.2mm</xsl:attribute>
-        <xsl:attribute name="space-after.optimum">0mm</xsl:attribute>
-        <xsl:attribute name="space-after.minimum">0mm</xsl:attribute>
-        <xsl:attribute name="space-after.maximum">0.2mm</xsl:attribute>
-        <!--   Абзацный отступ перечислений -->
-        <xsl:attribute name="margin-left">-7mm</xsl:attribute>
-    </xsl:attribute-set>
+    <xsl:template match="d:itemizedlist/d:listitem/d:para">
+        <xsl:call-template name="anchor"/>
+        <fo:inline padding-right="2mm">&#x2013;</fo:inline>
+        <xsl:apply-templates/>
+    </xsl:template>
 
-    <!-- Отбивка пунктов перечислений. -->
-    <xsl:attribute-set name="list.item.spacing">
-        <xsl:attribute name="space-before.optimum">0</xsl:attribute>
-        <xsl:attribute name="space-before.minimum">0</xsl:attribute>
-        <xsl:attribute name="space-before.maximum">0.2em</xsl:attribute>
-        <xsl:attribute name="space-after.optimum">0mm</xsl:attribute>
-        <xsl:attribute name="space-after.minimum">0mm</xsl:attribute>
-        <xsl:attribute name="space-after.maximum">0.2mm</xsl:attribute>
-        <!--   положение знака перечислений -->
-        <xsl:attribute name="text-indent">19.5mm</xsl:attribute>
-    </xsl:attribute-set>
+    <xsl:template match="d:orderedlist/d:listitem/d:para">
+        <xsl:call-template name="anchor"/>
+        <fo:inline padding-right="2mm">
+            <xsl:apply-templates select="parent::*" mode="item-number"/>
+        </fo:inline>
+        <xsl:apply-templates/>
+    </xsl:template>
 
-    <!-- Положение знаков перечислений относительно отступа -->
-    <!-- Абзацный отступ -->
-    <xsl:attribute-set name="para.properties"
-        xsl:use-attribute-sets="normal.para.spacing">
-        <xsl:attribute name="text-indent">
-            <xsl:choose>
-                <xsl:when test="parent::d:simplesect
-                            |parent::d:section
-                            |parent::d:sect1
-                            |parent::d:sect2
-                            |parent::d:sect3
-                            |parent::d:sect4
-                            |parent::d:sect5
-                            |parent::d:part
-                            |parent::d:preface
-                            |parent::d:appendix
-                            |parent::d:tip
-                            |parent::d:note
-                            |parent::d:caution
-                            |parent::d:important
-                            |parent::d:warning
-                            |parent::d:chapter
-                            |parent::d:abstract
-                            |parent::d:acknowledgements">
-                    <xsl:value-of select="$espd.text-indent"/>
-                </xsl:when>
-                <xsl:when test="ancestor::d:varlistentry and not (ancestor::d:itemizedlist) and not (ancestor::d:orderedlist)">13mm</xsl:when>
-                <xsl:when test="parent::d:listitem">19mm</xsl:when>
-                <xsl:otherwise>0mm</xsl:otherwise>
-            </xsl:choose>
-        </xsl:attribute>
-    </xsl:attribute-set>
 
 </xsl:stylesheet>

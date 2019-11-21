@@ -24,6 +24,7 @@
         </xsl:attribute>
         <xsl:attribute name="font-weight">normal</xsl:attribute>
         <xsl:attribute name="font-size">14pt</xsl:attribute>
+        <xsl:attribute name="line-height">1.5</xsl:attribute>
     </xsl:attribute-set>
 
     <!--<xsl:template name="front.cover">-->

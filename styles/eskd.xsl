@@ -20,7 +20,7 @@
     <xsl:include href="eskd/titles.xsl"/>
     <xsl:include href="eskd/images.xsl"/>
     <xsl:include href="espd/headings.xsl"/>
-    <xsl:include href="espd/list.xsl"/>
+    <xsl:include href="eskd/list.xsl"/>
     <xsl:include href="common/object.xsl"/>
     <xsl:include href="eskd/l10n.xsl"/>
     <xsl:include href="common/titlepage.xsl"/>
@@ -29,8 +29,8 @@
     <xsl:include href="eskd/admonitions.xsl"/>
     <xsl:include href="common/verbatim.xsl"/>
     <xsl:include href="eskd/toc.xsl"/>
-    <xsl:include href="eskd/design.xsl"/>
     <xsl:include href="eskd/lri.xsl"/>
+    <xsl:include href="eskd/design.xsl"/>
 
     <!-- Шрифт основного текста -->
     <xsl:param name="body.font.family">Times New Roman</xsl:param>
