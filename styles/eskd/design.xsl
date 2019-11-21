@@ -42,12 +42,12 @@
                         margin-left="0mm"
                         margin-right="0mm">
                     <!--Макет основной области -->
-                    <fo:region-body margin-top="15mm" margin-left="23mm" margin-bottom="55mm" margin-right="8mm"
+                    <fo:region-body margin-top="15mm" margin-left="23mm" margin-bottom="75mm" margin-right="8mm"
                     />
                     <!--Макет верхнего колонтитула -->
                     <fo:region-before extent="5mm"/>
                     <!--Макет нижнего колонтитула -->
-                    <fo:region-after extent="45mm"/>
+                    <fo:region-after extent="67.5mm"/>
                     <fo:region-start extent="20mm"/>
                     <fo:region-end extent="5mm"/>
                 </fo:simple-page-master>
@@ -166,7 +166,7 @@
                     <!-- Добавление номера страницы к нижнему колонтитулу -->
                     <fo:block border-top-style="solid" margin-top="-0.25mm" border-top="solid 0.5mm"/>
                     <fo:block-container position="fixed" top="293mm" left="110mm">
-                        <fo:block  font-size="9pt">
+                        <fo:block font-size="9pt">
                             <fo:inline padding-right="4cm">Копировал</fo:inline>
                             <fo:inline>Формат А4</fo:inline>
                         </fo:block>
@@ -267,6 +267,32 @@
                 </xsl:call-template>
                 <fo:block>
                     <fo:marker marker-class-name="bottom">
+                        <fo:block font-size="11pt" font-family="Times New Roman" text-align="right">
+                            <fo:table table-layout="fixed" height="22mm" border-style="solid" border-width="0.5mm"
+                                      display-align="center" font-size="9pt" margin-left="64.45mm">
+                                <fo:table-column column-width="14mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-column column-width="53mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-column column-width="52.8mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-body>
+                                    <fo:table-row border-style="solid" border-width="0.5mm" height="14mm">
+                                        <fo:table-cell border-bottom-width="0.5mm">
+                                            <fo:block/>
+                                        </fo:table-cell>
+                                        <fo:table-cell border-bottom-width="0.5mm">
+                                            <fo:block/>
+                                        </fo:table-cell>
+                                        <fo:table-cell border-bottom-width="0.5mm">
+                                            <fo:block/>
+                                        </fo:table-cell>
+                                    </fo:table-row>
+                                    <fo:table-row border-style="solid" border-width="0.5mm" height="7.5mm">
+                                        <fo:table-cell number-columns-spanned="3" border-bottom-width="0.5mm">
+                                            <fo:block/>
+                                        </fo:table-cell>
+                                    </fo:table-row>
+                                </fo:table-body>
+                            </fo:table>
+                        </fo:block>
                         <fo:block font-size="11pt" font-family="Times New Roman" text-align="center">
                             <fo:table table-layout="fixed" height="40mm" border-style="solid" border-width="0.5mm"
                                       display-align="center" font-size="9pt" margin-left="-0.1mm">
@@ -470,7 +496,7 @@
                             </fo:table>
                         </fo:block>
                         <fo:block-container position="fixed" top="293mm" left="110mm">
-                            <fo:block  font-size="9pt">
+                            <fo:block font-size="9pt">
                                 <fo:inline padding-right="4cm">Копировал</fo:inline>
                                 <fo:inline>Формат А4</fo:inline>
                             </fo:block>
@@ -574,7 +600,7 @@
                             </fo:table>
                         </fo:block>
                         <fo:block-container position="fixed" top="293mm" left="110mm">
-                            <fo:block  font-size="9pt">
+                            <fo:block font-size="9pt">
                                 <fo:inline padding-right="3cm">Копировал</fo:inline>
                                 <fo:inline>Формат А4</fo:inline>
                             </fo:block>
@@ -620,8 +646,8 @@
                 <fo:block>
                     <fo:marker marker-class-name="left"/>
                 </fo:block>
-<!--                -->
-<!--                <xsl:apply-templates select="d:acknowledgements" mode="acknowledgements"/>-->
+                <!--                -->
+                <!--                <xsl:apply-templates select="d:acknowledgements" mode="acknowledgements"/>-->
 
                 <xsl:call-template name="make.book.tocs"/>
                 <xsl:apply-templates select="d:dedication" mode="dedication"/>
