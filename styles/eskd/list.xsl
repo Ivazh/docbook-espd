@@ -113,7 +113,7 @@
 
     <xsl:template match="d:itemizedlist/d:listitem/d:para">
         <xsl:call-template name="anchor"/>
-        <fo:inline padding-right="2mm">&#x2013;</fo:inline>
+        <fo:inline padding-right="2mm">-</fo:inline>
         <xsl:apply-templates/>
     </xsl:template>
 

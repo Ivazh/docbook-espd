@@ -295,33 +295,33 @@
                         </fo:block>
                         <fo:block line-height="1.0" font-size="11pt" font-family="Times New Roman" text-align="center">
                             <fo:table table-layout="fixed" height="40mm" border-style="solid" border-width="0.5mm"
-                                      display-align="center" font-size="9pt" margin-left="-0.1mm">
-                                <fo:table-column column-width="6.5mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="23mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="15mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="70mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm"/>
+                                      display-align="center" font-size="9pt" margin-left="-0.2mm">
+                                <fo:table-column column-width="6.5mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="23mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="15mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="70mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm" />
+                                <fo:table-column column-width="5mm" border-style="solid" border-width="0.5mm" />
                                 <fo:table-column column-width="17mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="17.8mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-column column-width="17.95mm" border-style="solid" border-width="0.5mm" />
                                 <fo:table-body>
-                                    <fo:table-row border-style="solid" border-width="0.2mm" height="4.5mm">
-                                        <fo:table-cell border-bottom-width="0.3mm">
+                                    <fo:table-row border-style="solid" height="4.7mm" border-width="0.3mm">
+                                        <fo:table-cell>
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell border-bottom-width="0.3mm">
+                                        <fo:table-cell>
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell border-bottom-width="0.3mm">
+                                        <fo:table-cell>
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell border-bottom-width="0.3mm">
+                                        <fo:table-cell>
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell border-bottom-width="0.3mm">
+                                        <fo:table-cell>
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell number-columns-spanned="6" number-rows-spanned="3">
@@ -331,7 +331,7 @@
                                             </fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.2mm" height="4.5mm">
+                                    <fo:table-row border-style="solid" height="4.5mm" border-width="0.3mm">
                                         <fo:table-cell>
                                             <fo:block></fo:block>
                                         </fo:table-cell>
@@ -348,7 +348,7 @@
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.5mm" height="4.5mm">
+                                    <fo:table-row border-style="solid" height="4.5mm" border-width="0.5mm">
                                         <fo:table-cell>
                                             <fo:block>Изм.</fo:block>
                                         </fo:table-cell>
@@ -365,8 +365,8 @@
                                             <fo:block>Дата</fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.5mm" height="4.5mm">
-                                        <fo:table-cell number-columns-spanned="2" text-align="left">
+                                    <fo:table-row border-style="solid" height="4.7mm" border-width="0.3mm">
+                                        <fo:table-cell display-align="center" number-columns-spanned="2" text-align="left">
                                             <fo:block>Разраб.</fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell>
@@ -376,7 +376,7 @@
                                                 </xsl:call-template>
                                             </fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell >
                                             <fo:block/>
                                         </fo:table-cell>
                                         <fo:table-cell>
@@ -398,54 +398,54 @@
                                                 <xsl:value-of select="/d:book/d:info/d:subtitle"/>
                                             </fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell number-columns-spanned="3">
+                                        <fo:table-cell number-columns-spanned="3" border-style="solid" border-width="0.5mm">
                                             <fo:block>Лит.</fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-style="solid" border-width="0.5mm">
                                             <fo:block>Лист</fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-style="solid" border-width="0.5mm">
                                             <fo:block>Листов</fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.5mm" height="4.5mm">
-                                        <fo:table-cell number-columns-spanned="2" text-align="left">
+                                    <fo:table-row border-style="solid" border-width="0.3mm" height="4.7mm">
+                                        <fo:table-cell number-columns-spanned="2" text-align="left" border-bottom-width="0.3mm" border-top-width="0.3mm">
                                             <fo:block>Пров.</fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-bottom-width="0.3mm">
                                             <fo:block text-align="left">
                                                 <xsl:call-template name="person.surname">
                                                     <xsl:with-param name="position">Руководитель разработки</xsl:with-param>
                                                 </xsl:call-template>
                                             </fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-bottom-width="0.3mm">
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-bottom-width="0.3mm">
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-width="0.5mm" border-style="solid">
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-width="0.5mm" border-style="solid">
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-width="0.5mm" border-style="solid">
                                             <fo:block/>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-width="0.5mm" border-style="solid">
                                             <fo:block>
                                                 <fo:page-number/>
                                             </fo:block>
                                         </fo:table-cell>
-                                        <fo:table-cell>
+                                        <fo:table-cell border-width="0.5mm" border-style="solid">
                                             <fo:block>
                                                 <fo:page-number-citation ref-id="END-OF-DOCUMENT"/>
                                             </fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.5mm" height="4.5mm">
+                                    <fo:table-row border-style="solid" border-width="0.3mm" height="4.5mm">
                                         <fo:table-cell number-columns-spanned="2">
                                             <fo:block/>
                                         </fo:table-cell>
@@ -462,7 +462,7 @@
                                             <fo:block/>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.5mm" height="4.5mm">
+                                    <fo:table-row border-style="solid" border-width="0.3mm" height="4.5mm">
                                         <fo:table-cell number-columns-spanned="2" text-align="left">
                                             <fo:block>Н. контр.</fo:block>
                                         </fo:table-cell>
@@ -478,7 +478,7 @@
                                             <fo:block></fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
-                                    <fo:table-row border-style="solid" border-width="0.5mm" height="4.8mm">
+                                    <fo:table-row border-style="solid" border-width="0.3mm" height="4.6mm">
                                         <fo:table-cell number-columns-spanned="2" text-align="left">
                                             <fo:block>Утв.</fo:block>
                                         </fo:table-cell>
@@ -495,7 +495,7 @@
                                 </fo:table-body>
                             </fo:table>
                         </fo:block>
-                        <fo:block-container position="fixed" top="293mm" left="110mm">
+                        <fo:block-container position="fixed" top="292mm" left="110mm">
                             <fo:block font-size="9pt">
                                 <fo:inline padding-right="4cm">Копировал</fo:inline>
                                 <fo:inline>Формат А4</fo:inline>
@@ -506,7 +506,7 @@
                 <fo:block>
                     <fo:marker marker-class-name="bottom">
                         <fo:block font-size="11pt" font-family="Times New Roman" text-align="center" line-height="1.0">
-                            <fo:table table-layout="fixed" margin-left="-0.1mm" width="175mm" font-size="9pt"
+                            <fo:table table-layout="fixed" margin-left="-0.2mm" width="175mm" font-size="9pt"
                                       height="15mm" border-style="solid" display-align="center"
                                       border-width="0.5mm">
                                 <fo:table-column column-width="6.5mm" border-style="solid" border-width="0.5mm"/>
@@ -515,7 +515,7 @@
                                 <fo:table-column column-width="15mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-column column-width="10mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-column column-width="110mm" border-style="solid" border-width="0.5mm"/>
-                                <fo:table-column column-width="9.8mm" border-style="solid" border-width="0.5mm"/>
+                                <fo:table-column column-width="9.95mm" border-style="solid" border-width="0.5mm"/>
                                 <fo:table-body>
                                     <fo:table-row border-style="solid" border-width="0.2mm" height="4.5mm">
                                         <fo:table-cell border-bottom-width="0.2mm">
@@ -599,7 +599,7 @@
                                 </fo:table-body>
                             </fo:table>
                         </fo:block>
-                        <fo:block-container position="fixed" top="293mm" left="110mm">
+                        <fo:block-container position="fixed" top="292mm" left="110mm">
                             <fo:block font-size="9pt">
                                 <fo:inline padding-right="3cm">Копировал</fo:inline>
                                 <fo:inline>Формат А4</fo:inline>
@@ -797,7 +797,7 @@
 
         <xsl:if test="$nodes">
             <fo:block id="toc...{$cid}"
-                      xsl:use-attribute-sets="toc.margin.properties">
+                      xsl:use-attribute-sets="toc.margin.properties" hyphenate="false">
                 <xsl:if test="$axf.extensions != 0 and
                     $xsl1.1.bookmarks = 0 and
                     $show.bookmarks != 0">
