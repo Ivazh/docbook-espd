@@ -36,6 +36,8 @@ get_filename_component(fop_exec ${fop_exec} NAME)
 set(FOP_FONT_DIRPATH "${PROJECT_SOURCE_DIR}/docbook-espd/fonts")
 set(TIMES_NEW_ROMAN_REGULAR_FONT    "${PROJECT_SOURCE_DIR}/docbook-espd/fonts/TimesNewRoman-Regular.ttf")
 set(TIMES_NEW_ROMAN_REGULAR_METRICS "${PROJECT_SOURCE_DIR}/docbook-espd/fonts/TimesNewRoman-Regular.metrics.xml")
+set(TIMES_NEW_ROMAN_BOLD_FONT    "${PROJECT_SOURCE_DIR}/docbook-espd/fonts/TimesNewRoman-Bold.ttf")
+set(TIMES_NEW_ROMAN_BOLD_METRICS "${PROJECT_SOURCE_DIR}/docbook-espd/fonts/TimesNewRoman-Bold.metrics.xml")
 set(fop_conf "${PROJECT_BINARY_DIR}/fop.xml")
 configure_file(${PROJECT_SOURCE_DIR}/docbook-espd/conf/fop.xml.in ${fop_conf})
 

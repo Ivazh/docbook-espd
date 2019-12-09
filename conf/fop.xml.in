@@ -15,6 +15,14 @@
                     <font-triplet name="Times New Roman" style="normal" weight="normal"/>
                     <font-triplet name="timesi" style="normal" weight="normal"/>
                 </font>
+                <font metrics-file="file://@TIMES_NEW_ROMAN_BOLD_METRICS@"
+                      kerning="yes"
+                      embed-url="@TIMES_NEW_ROMAN_BOLD_FONT@"
+                      encoding-mode="auto">
+                    <font-triplet name="TimesNewRoman" style="normal" weight="bold"/>
+                    <font-triplet name="Times New Roman" style="normal" weight="bold"/>
+                    <font-triplet name="timesi" style="normal" weight="bold"/>
+                </font>
 
                 <!-- Регистрация всех шрифтов, расположенных в указанном каталоге. -->
                 <!--<directory recursive="false">@FOP_FONT_DIRPATH@</directory>-->
