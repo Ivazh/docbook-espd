@@ -87,26 +87,26 @@
         </fo:block>
 
         <!-- Руководитель проекта -->
-        <fo:block-container keep-together="always" space-before="1cm">
+        <fo:block-container keep-together="always" space-before="7cm">
             <fo:block-container absolute-position="absolute"
                                 keep-together="always"
                                 right="0cm"
-                                width="33%"
+                                width="7cm"
                                 xsl:use-attribute-sets="book.titlepage.recto.style">
 
-                <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:authorgroup/d:othercredit"/>
-                <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:authorgroup/d:author"/>
+                <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:authorgroup/d:othercredit[1]"/>
+<!--                <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:authorgroup/d:author"/>-->
             </fo:block-container>
         </fo:block-container>
         <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:edition"/>
         <xsl:apply-templates mode="book.titlepage.recto.auto.mode" select="d:info/d:pubdate"/>
 
-<!--        <fo:block-container absolute-position="fixed"-->
-<!--                            top="28cm"-->
-<!--                            right="2cm"-->
-<!--                            left="2cm">-->
-<!--            <fo:block text-align="right">Литера</fo:block>-->
-<!--        </fo:block-container>-->
+        <fo:block-container absolute-position="fixed"
+                            top="28cm"
+                            right="2cm"
+                            left="2cm">
+            <fo:block text-align="right">Литера</fo:block>
+        </fo:block-container>
 
     </xsl:template>
 
@@ -121,7 +121,7 @@
                     <xsl:value-of select="$caption"/>
                 </fo:block>
             </xsl:if>
-            <fo:block text-align="left">
+            <fo:block text-align="left" keep-together="auto">
                 <xsl:value-of select="$appointment"/>
             </fo:block>
             <fo:block text-align="right">
@@ -130,10 +130,11 @@
             <fo:block text-align="left">
                 <fo:inline>
                     <xsl:text>«__»___________</xsl:text>
-                    <xsl:call-template name="datetime.format">
-                        <xsl:with-param name="date" select="date:date-time()"/>
-                        <xsl:with-param name="format" select="'Y'"/>
-                    </xsl:call-template>
+                    <xsl:value-of select="/d:book//d:pubdate"/>
+<!--                    <xsl:call-template name="datetime.format">-->
+<!--                        <xsl:with-param name="date" select="date:date()"/>-->
+<!--                        <xsl:with-param name="format" select="'Y'"/>-->
+<!--                    </xsl:call-template>-->
                     <xsl:text> г.</xsl:text>
                 </fo:inline>
             </fo:block>
@@ -160,10 +161,11 @@
             <fo:block text-align="center">
                 <fo:inline>
                     <xsl:text>«__»___________</xsl:text>
-                    <xsl:call-template name="datetime.format">
-                        <xsl:with-param name="date" select="date:date-time()"/>
-                        <xsl:with-param name="format" select="'Y'"/>
-                    </xsl:call-template>
+                    <xsl:value-of select="/d:book//d:pubdate"/>
+<!--                    <xsl:call-template name="datetime.format">-->
+<!--                        <xsl:with-param name="date" select="date:date()"/>-->
+<!--                        <xsl:with-param name="format" select="'Y'"/>-->
+<!--                    </xsl:call-template>-->
                     <xsl:text> г.</xsl:text>
                 </fo:inline>
             </fo:block>
@@ -176,7 +178,7 @@
         <fo:block space-before="10mm" space-after="5mm">
             <xsl:call-template name="espd.title.approvement">
                 <xsl:with-param name="caption" select="$caption"/>
-                <xsl:with-param name="appointment" select="d:personblurb[1]"/>
+                <xsl:with-param name="appointment" select="d:personblurb[1]/d:para"/>
                 <xsl:with-param name="initials">
                     <xsl:call-template name="person.name" mode="initials"/>
                 </xsl:with-param>

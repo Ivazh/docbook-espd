@@ -414,8 +414,8 @@
                                         </fo:table-cell>
                                         <fo:table-cell border-bottom-width="0.3mm">
                                             <fo:block text-align="left">
-                                                <xsl:call-template name="person.surname">
-                                                    <xsl:with-param name="position">Руководитель разработки</xsl:with-param>
+                                                <xsl:call-template name="person.surname.pos" >
+                                                    <xsl:with-param name="position">1</xsl:with-param>
                                                 </xsl:call-template>
                                             </fo:block>
                                         </fo:table-cell>
@@ -963,6 +963,10 @@
                 <xsl:value-of select=".//d:surname"/>
             </xsl:if>
         </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="person.surname.pos">
+        <xsl:param name="position"/>
+        <xsl:value-of select="/d:book/d:info//d:othercredit[$position]//d:surname"/>
     </xsl:template>
     <xsl:template name="person.editor">
         <xsl:value-of select="/d:book/d:info//d:editor//d:surname"/>
