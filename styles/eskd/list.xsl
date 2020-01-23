@@ -99,6 +99,9 @@
             </xsl:when>
             <xsl:otherwise>
                 <fo:list-item id="{$id}" xsl:use-attribute-sets="list.item.spacing">
+                    <xsl:if test="*[position()=last()]">
+                        <xsl:attribute name="keep-with-previous">always</xsl:attribute>
+                    </xsl:if>
                     <xsl:if test="$keep.together != ''">
                         <xsl:attribute name="keep-together.within-column">
                             <xsl:value-of

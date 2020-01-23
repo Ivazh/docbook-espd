@@ -246,5 +246,11 @@
         <xsl:apply-templates/>
     </xsl:template>
 
+    <xsl:template match="d:phrase">
+        <fo:inline keep-together.within-line="always">
+            <xsl:call-template name="anchor"/>
+            <xsl:call-template name="inline.charseq"/>
+        </fo:inline>
+    </xsl:template>
 
 </xsl:stylesheet>
