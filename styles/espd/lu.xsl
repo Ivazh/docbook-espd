@@ -122,7 +122,7 @@
                     <xsl:value-of select="$caption"/>
                 </fo:block>
             </xsl:if>
-            <fo:block text-align="left">
+            <fo:block text-align="left" keep-together="auto">
                 <xsl:value-of select="$appointment"/>
             </fo:block>
             <fo:block text-align="right">
@@ -131,10 +131,12 @@
             <fo:block text-align="left">
                 <fo:inline>
                     <xsl:text>«__»___________</xsl:text>
-                    <xsl:call-template name="datetime.format">
-                        <xsl:with-param name="date" select="date:date-time()"/>
-                        <xsl:with-param name="format" select="'Y'"/>
-                    </xsl:call-template>
+                    <xsl:value-of select="/d:book//d:pubdate"/>
+                    <!--                    <xsl:call-template name="datetime.format">-->
+                    <!--                        <xsl:with-param name="date" select="date:date()"/>-->
+                    <!--                        <xsl:with-param name="format" select="'Y'"/>-->
+                    <!--                    </xsl:call-template>-->
+
                     <xsl:text> г.</xsl:text>
                 </fo:inline>
             </fo:block>
@@ -152,7 +154,7 @@
                     <xsl:value-of select="$caption"/>
                 </fo:block>
             </xsl:if>
-            <fo:block text-align="center">
+            <fo:block text-align="center" keep-together="auto">
                 <xsl:value-of select="$appointment"/>
             </fo:block>
             <fo:block text-align="right">
@@ -161,10 +163,12 @@
             <fo:block text-align="center">
                 <fo:inline>
                     <xsl:text>«__»___________</xsl:text>
-                    <xsl:call-template name="datetime.format">
-                        <xsl:with-param name="date" select="date:date-time()"/>
-                        <xsl:with-param name="format" select="'Y'"/>
-                    </xsl:call-template>
+                    <xsl:value-of select="/d:book//d:pubdate"/>
+                    <!--                    <xsl:call-template name="datetime.format">-->
+                    <!--                        <xsl:with-param name="date" select="date:date()"/>-->
+                    <!--                        <xsl:with-param name="format" select="'Y'"/>-->
+                    <!--                    </xsl:call-template>-->
+
                     <xsl:text> г.</xsl:text>
                 </fo:inline>
             </fo:block>
@@ -195,7 +199,7 @@
 
             <xsl:call-template name="espd.title.approvement1">
                 <xsl:with-param name="caption" select="'УТВЕРЖДАЮ'"/>
-                <xsl:with-param name="appointment" select="d:personblurb[1]"/>
+                <xsl:with-param name="appointment" select="d:personblurb[1]/d:para"/>
                 <xsl:with-param name="initials">
                     <xsl:call-template name="person.name" mode="initials"/>
                 </xsl:with-param>
