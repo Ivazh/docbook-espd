@@ -633,7 +633,14 @@
                                             </fo:table-cell>
                                             <fo:table-cell display-align="center">
                                                 <fo:block>
-                                                    <xsl:value-of select="/d:book/d:info/d:decimal"/>
+                                                    <xsl:choose>
+                                                        <xsl:when test="/d:book/d:info/d:firstdecimal">
+                                                            <xsl:value-of select="/d:book/d:info/d:firstdecimal"/>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:value-of select="/d:book/d:info/d:decimal"/>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
                                                 </fo:block>
                                             </fo:table-cell>
                                         </fo:table-row>
@@ -971,7 +978,7 @@
     <xsl:template name="person.editor">
         <xsl:value-of select="/d:book/d:info//d:editor//d:surname"/>
     </xsl:template>
-    <xsl:template name="person.author">
+    <xsl:template name="person.author">а
         <xsl:value-of select="/d:book/d:info//d:author//d:surname"/>
     </xsl:template>
 
