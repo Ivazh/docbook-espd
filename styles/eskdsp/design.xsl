@@ -978,7 +978,7 @@
     <xsl:template name="person.editor">
         <xsl:value-of select="/d:book/d:info//d:editor//d:surname"/>
     </xsl:template>
-    <xsl:template name="person.author">а
+    <xsl:template name="person.author">
         <xsl:value-of select="/d:book/d:info//d:author//d:surname"/>
     </xsl:template>
 
