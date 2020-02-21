@@ -31,8 +31,17 @@
                     <fo:block font-size="8pt" text-align="right">Сформировано с помощью cbs</fo:block>
                 </fo:static-content>
                 <fo:flow flow-name="xsl-region-body" hyphenate="false" font-size="11pt" line-height="1.1em">
-                    <fo:block text-align="center" font-size="14pt" font-weight="700">
+                    <fo:block text-align="center" font-size="14pt" margin-bottom="1cm" font-weight="700">
                         ИНФОРМАЦИОННО-ПОИСКОВАЯ ХАРАКТЕРИСТИКА
+                    </fo:block>
+                    <fo:block text-align="right" margin-bottom="2mm">
+                        Шифр:
+                        <xsl:value-of select="/iph/abbrev"/>
+                    </fo:block>
+                    <fo:block text-align="right">
+                        <fo:inline font-weight="700">
+                            <xsl:value-of select="/iph/decimal"/>
+                        </fo:inline>
                     </fo:block>
                     <fo:block margin-top="10mm">Обозначение: <fo:inline font-weight="700"><xsl:value-of select="/iph/number"/></fo:inline></fo:block>
                     <fo:block>Наименование: <fo:inline><xsl:value-of select="/iph/name"/></fo:inline></fo:block>
