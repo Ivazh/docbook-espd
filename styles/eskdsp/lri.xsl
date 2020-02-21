@@ -25,8 +25,7 @@
     </xsl:attribute-set>
 
     <xsl:template name="lripage">
-<!--        <fo:block id="END-OF-DOCUMENT" break-before="page"/>-->
-        <fo:block xsl:use-attribute-sets="espd.lri.style" hyphenate="true" hyphenation-character="-">
+        <fo:block id="END-OF-DOCUMENT" xsl:use-attribute-sets="espd.lri.style" hyphenate="true" hyphenation-character="-">
             <fo:table table-layout="fixed" margin-left="0.1mm" keep-together="always" width="185mm" height="277mm" border-style="solid" border-width="0.4mm">
                 <fo:table-column column-width="12.3mm" border-style="solid"/>
                 <fo:table-column column-width="15mm" border-style="solid"/>

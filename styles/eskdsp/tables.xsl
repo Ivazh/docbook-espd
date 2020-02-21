@@ -144,7 +144,7 @@
         <xsl:attribute name="space-after.minimum">0</xsl:attribute>
         <xsl:attribute name="space-after.optimum">0</xsl:attribute>
         <xsl:attribute name="space-after.maximum">0</xsl:attribute>
-        <xsl:attribute name="hyphenate">true</xsl:attribute>
+        <xsl:attribute name="hyphenate">false</xsl:attribute>
         <xsl:attribute name="font-size">12pt</xsl:attribute>
         <xsl:attribute name="margin-left">0.3mm</xsl:attribute>
     </xsl:attribute-set>
@@ -251,6 +251,7 @@
                 <xsl:attribute name="border-after-width">0.5mm</xsl:attribute>
                 <xsl:attribute name="text-align">center</xsl:attribute>
                 <xsl:attribute name="display-align">center</xsl:attribute>
+                <xsl:attribute name="hyphenate">true</xsl:attribute>
             </xsl:when>
             <xsl:when test="@role='double'">
                 <xsl:attribute name="border-after-style">double</xsl:attribute>
