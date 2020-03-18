@@ -43,10 +43,10 @@ if(${FOP_TYPE} STREQUAL "EXT")
 endif()
 
 # Требуется подключение встроенной версии.
-set(FOP_SUPPORTED_VERSIONS "2.3")
+set(FOP_SUPPORTED_VERSIONS "2.3;2.4")
 #--- Если версия не указана, то использование версии по-умолчанию.
 if(NOT DEFINED FOP_VERSION)
-    set(FOP_VERSION "2.3")
+    set(FOP_VERSION "2.4")
 endif()
 #--- Поиск требуемой версии.
 list(FIND FOP_SUPPORTED_VERSIONS ${FOP_VERSION} FOP_TEST_VERSION)
