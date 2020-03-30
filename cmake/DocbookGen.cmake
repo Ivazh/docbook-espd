@@ -32,7 +32,7 @@ get_filename_component(fop_exec ${fop_exec} NAME)
 
 
 # Подготовка файла конфигурации для Fop.
-# NOTE avk Файл настроек fop.conf - входной параметри его место в проекте с документацией.
+# NOTE avk Файл настроек fop.conf - входной параметр и его место в проекте с документацией.
 set(FOP_FONT_DIRPATH "${PROJECT_SOURCE_DIR}/docbook-espd/fonts")
 set(TIMES_NEW_ROMAN_REGULAR_FONT    "${PROJECT_SOURCE_DIR}/docbook-espd/fonts/TimesNewRoman-Regular.ttf")
 set(TIMES_NEW_ROMAN_REGULAR_METRICS "${PROJECT_SOURCE_DIR}/docbook-espd/fonts/TimesNewRoman-Regular.metrics.xml")

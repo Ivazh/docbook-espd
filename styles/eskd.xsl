@@ -41,9 +41,8 @@
     <!-- Шрифт символов (псевдографики) -->
     <xsl:param name="symbol.font.family">OpenSymbol</xsl:param>
     <!-- Шрифт моноширинный (computeroutput, programlisting) -->
-    <xsl:param name="monospace.font.family">Courier New</xsl:param>
-    <!--<xsl:param name="body.font.master">12</xsl:param>-->
+    <xsl:param name="monospace.font.family">InputMono-Regular</xsl:param>
 
+    <!-- Разрешение применять расширения XSL-FO, реализованные в Fop -->
     <xsl:param name="fop1.extensions">1</xsl:param>
-
 </xsl:stylesheet>

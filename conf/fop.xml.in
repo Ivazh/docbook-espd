@@ -15,6 +15,7 @@
                     <font-triplet name="Times New Roman" style="normal" weight="normal"/>
                     <font-triplet name="timesi" style="normal" weight="normal"/>
                 </font>
+                <!-- Регистрация шрифта TimesNewRoman-Bold. -->
                 <font metrics-file="file://@TIMES_NEW_ROMAN_BOLD_METRICS@"
                       kerning="yes"
                       embed-url="@TIMES_NEW_ROMAN_BOLD_FONT@"
@@ -25,7 +26,7 @@
                 </font>
 
                 <!-- Регистрация всех шрифтов, расположенных в указанном каталоге. -->
-                <!--<directory recursive="false">@FOP_FONT_DIRPATH@</directory>-->
+                <directory recursive="false">@FOP_FONT_DIRPATH@</directory>
 
                 <!-- Автоматиечкая регистрация всех шрифтов, установленных в ОС. -->
                 <!-- Опция отключена для полного контроля за подключаемыми шрифтами. -->
